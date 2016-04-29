@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alex Plagman - Home</title>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen:300,700" rel="stylesheet" type="text/css">
+        <!--Remember, oxygen is necessary for survival - unlike the inferior font carbon dioxide, which I don't use.-->
+        <!--Unfortunately, geneticists have failed to produce a consistent method with which to make Comic Sans appealing to the next generation.-->        
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <!--<link href="css/flexnav.css" rel="stylesheet" type="text/css">-->
+    </head>
+    <body> 
+        <header>
+            <a href="#" id="menuIcon" class="menu-button"></a>
+            <a id="brand" href="index.html">alex_plagman</a>
+            <nav id="mainNav">
+                <ul class="flexnav" data-breakpoint="800">
+                    <li class="navOption"><a class="active" href="index.html">Home</a>
+                    <li class="navOption"><a href="portfolio.html">Portfolio</a>
+                    <li class="navOption"><a href="contact.html">Contact</a>
+                    <li class="navOption"><a href="blog.html">Blog</a>
+                </ul>
+            </nav>
+        </header>     
+        <div id="content">
+            <section class="lead">
+                <div id="tagline">
+                    <span>Alex Plagman is a developer.</span>
+                </div>
+            </section>
+            <section id="summary">
+                <p>I'm an independent programmer, life-long learner, and firm supporter of open-source code.</p>
+            </section>
+        </div>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/jquery.flexnav.min.js"></script>
+        <!--<script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".flexnav").flexNav();
+            });
+        </script>-->
+        <script type="text/javascript" src="src/wat.js"></script>
+    </body>
+</html>

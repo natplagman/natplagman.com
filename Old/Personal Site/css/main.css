@@ -1,0 +1,152 @@
+html{
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #1B1B1B;
+    z-index: 2;
+}
+
+#menuIcon {
+    display: none;
+    width: 50px;
+    height: 3em;
+    margin-right: -.23em;
+    vertical-align: bottom;
+    background: url(../img/sprites.png) no-repeat;
+}
+
+#brand {   
+    background: #000;
+    color: #EEE;
+    display: inline-block;
+    padding: 0 1em;
+    line-height: 3em;
+    font-family: "Oxygen", sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#brand:hover {
+    color: #09D;
+}
+
+#mainNav .active {
+    background-color: #09D;
+}
+
+#mainNav {
+    background-color: #1B1B1B;
+    position: absolute;
+    display: block;
+    line-height: 3em;
+    font-family: "Oxygen", sans-serif;
+    z-index: 2;
+}
+
+#mainNav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mainNav ul li {
+    display: inline-block;
+}
+
+#mainNav ul li a {
+    color: #FFF;
+    display: block;
+    margin-left: -.2em;
+    padding: 0 1.1em;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#mainNav ul li a:hover {
+    background-color: #09D;
+}
+
+#content {
+}
+
+.lead {
+    display: inline-block;
+    animation: slideRight 1s;
+}
+
+.lead span {
+    display: block;
+    background: #0CF;
+    border-bottom: .1em solid #09D;
+    color: #fff;
+    padding: 0 .15em;
+    font-family: 'Oxygen';
+    font-size: 4em;
+    line-height: 1em;
+}
+
+#desc {
+    background: #09D;
+    padding-left: 2em;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 5em;
+    animation: slideRight 1s backwards;
+    transition: color .3s;
+}
+
+#desc:hover {
+    color: #000;
+}
+
+.trapezoidLeftDown {
+    margin-bottom: 2em;
+    border-top: 2em solid #0CF;
+    border-right: 3em solid transparent;
+    animation: slideRight 1s .1s backwards;
+}
+
+.trapezoidRightUp {
+    margin-left: 5em;
+    border-bottom: 2em solid #0CF;
+    border-left: 3em solid transparent;
+    animation: slideLeft 1s backwards;
+}
+
+@keyframes slideLeft {
+    0% { 
+        transform: translateX(5000px);
+        opacity: 0;
+    }
+    60% { 
+        opacity: 1;
+    }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    0% { 
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+    60% { 
+        opacity: 1;
+    }
+    100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}

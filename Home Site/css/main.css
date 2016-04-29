@@ -1,0 +1,133 @@
+html{
+    height: 100%;
+    overflow: hidden;
+    
+    font-family: "Oxygen", sans-serif;
+    text-align: center;
+}
+
+body {
+    background: #E9EAEA;
+    color: #000;
+    margin: 0;
+}
+
+header {
+    background: #2B2B2B;
+    box-shadow: 0px 3px 8px 0px #999;
+    position: relative;
+    text-align: left;
+}
+
+#menuIcon {
+    background: url(../img/sprites.png) no-repeat;
+    display: none;
+    width: 50px;
+    height: 3em;
+    margin-right: -.23em;
+    vertical-align: bottom;
+}
+
+#brand {   
+    background: #000;
+    color: #EEE;
+    display: inline-block;
+    padding: 0 1em;
+    
+    line-height: 3em;
+    text-decoration: none;
+}
+
+#brand:hover {
+    color: #09D;
+}
+
+#mainNav .active {
+    background-color: #09D;
+}
+
+#mainNav {
+    background-color: #2B2B2B;
+    position: absolute;
+    display: inline-block;
+    
+    line-height: 3em;
+}
+
+#mainNav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mainNav li {
+    display: inline-block;
+}
+
+#mainNav a {
+    display: inline-block;
+    padding: 0 1em;
+    
+    color: #FFF;
+    text-decoration: none;
+    
+    transition: background-color 0.3s;
+}
+
+#mainNav ul li a:hover {
+    background-color: #09D;
+}
+
+#tagline {
+    display: block;
+    padding: 10px 0;
+    background: #FFF;
+    
+    font-size: 3em;
+    text-align: center;
+}
+
+#tagline span {
+    animation: fadeIn 1s;
+}
+
+#banner {
+    display: block;
+    padding: 5px 0;
+    margin-bottom: 1em;
+    background: #FFF;
+    
+    font-size: 2em;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+#summary {
+    text-align: center;
+}
+
+#skills {
+    display: inline-block;
+    border: 1px solid #555;
+    padding: 0 3em 3em;
+    background: #FFF;
+    
+    text-align: left;
+}
+
+.skillBar {
+    width: 20em;
+    padding: 0.25em 0.5em;
+    margin: 0em 1em;
+    
+    background-color: #3BF;
+    color: #FFF;
+}
