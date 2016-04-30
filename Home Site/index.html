@@ -5,21 +5,20 @@
         <link href="https://fonts.googleapis.com/css?family=Oxygen:300,700" rel="stylesheet" type="text/css">
         <!--Remember, oxygen is necessary for survival - unlike the inferior font carbon dioxide, which I don't use.-->
         <!--Unfortunately, geneticists have failed to produce a consistent method with which to make Comic Sans appealing to the next generation.-->        
+        <link href="css/flexnav.css" rel="stylesheet" type="text/css">
         <link href="css/main.css" rel="stylesheet" type="text/css">
-        <!--<link href="css/flexnav.css" rel="stylesheet" type="text/css">-->
     </head>
     <body> 
         <header>
-            <a href="#" id="menuIcon" class="menu-button"></a>
-            <a id="brand" href="index.html">alex_plagman</a>
-            <nav id="mainNav">
-                <ul class="flexnav" data-breakpoint="800">
-                    <li class="navOption"><a class="active" href="index.html">Home</a>
-                    <li class="navOption"><a href="portfolio.html">Portfolio</a>
-                    <li class="navOption"><a href="contact.html">Contact</a>
-                    <li class="navOption"><a href="blog.html">Blog</a>
-                </ul>
-            </nav>
+            <div id="menuButton" class="menu-button">Menu</div>
+            <ul id="mainNav" class="flexnav" data-breakpoint="800">
+                <li><a id="brand" href="index.html">alex_plagman</a>
+                <li><a class="active" href="index.html">Home</a>
+                <li><a href="portfolio.html">Portfolio</a>
+                <li><a href="contact.html">Contact</a>
+                <li><a href="blog.html">Blog</a>
+                <li><a id="social">Social</a>
+            </ul>
         </header>     
         <div id="content">
             <section class="lead">
@@ -31,13 +30,8 @@
                 <p>I'm an independent programmer, life-long learner, and firm supporter of open-source code.</p>
             </section>
         </div>
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="js/jquery.flexnav.min.js"></script>
-        <!--<script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $(".flexnav").flexNav();
-            });
-        </script>-->
-        <script type="text/javascript" src="src/wat.js"></script>
+        <script src="src/jquery-1.12.3.js"></script>
+        <script type="text/javascript" src="src/jquery.flexnav.min.js"></script>
+        <script>$(".flexnav").flexNav({'calcItemWidths': true});</script>
     </body>
 </html>
