@@ -23,35 +23,49 @@
                 <p>Software Developer</p>
             </section>
             <section id="summary">
-                <h1>About Me</h1>
-                <p>I'm Alex Plagman, a current Computer Science student at Eastern Washington University.<br>
-                    I'm an independent programmer and a firm supporter of open-source code (when I'm not busy as a Jedi on the side).</p>
-                <img src="img/obi.png">
-                <p>I work in a variety of languages and technologies with a focus on software and application development.</p>
+                <div>
+                    <div id="self">
+                        <img src="img/me.jpg">
+                    </div>
+                    <div id="description">
+                        <h1>About Me</h1>
+                        <p>I'm Alex Plagman, currently earning a Bachelor's in Computer Science at Eastern Washington University.<br>
+                        I'm an independent programmer and a firm supporter of open-source code.<br><br>
+                        I work in a variety of languages and technologies with a focus on software and application development.
+                        </p>
+                        <div id="skills">
+                            <h1>Skill Set</h1>
+                            <div id="csharpBar" class="skillBar" langTag="csharp">C#</div>
+                            <div id="javaBar" class="skillBar" langTag="java">Java</div>
+                            <div id="cssBar" class="skillBar" langTag="web">HTML / CSS</div>
+                            <div id="jsBar" class="skillBar" langTag="javascript">JavaScript</div>
+                            <div id="pyBar" class="skillBar" langTag="python">Python</div>
+                        </div>
+                        <p>Coding shouldn't have to be complicated. For me, it's fun.<br>
+                        In my work, I prioritize simplicity and efficiency.<br>
+                        </p>
+                    </div>
+                </div>
             </section>
             <section id="portfolio">
                 <h1>Portfolio</h1>
-                <p>Here you can find a selection of projects that I've created or contributed to.<br>Hover over one to view more information and/or examine it directly.</p>
-                <table id="gallery">
-                    <tr>
-                        <td id="tyrais" class="galleryItem">
-                            <p><span>Tyrais</span></p>
-                            <img src="img/tyrais.png">
-                            <a class="githubLink">View on Github</a>
-                        </td>
-                        <td id="brokenShadows" class="galleryItem">
-                            <p><span>Broken Shadows</span></p>
-                            <img src="img/brokenshadows.png">
-                            <a class="githubLink">View on Github</a>
-                        </td>
-                    </tr>
-                </table>
+                <p>Here you can find a selection of projects that I've created or contributed to.</p>
+                <a id="brokenShadows" class="galleryItem" langTag="csharp">
+                    <div>
+                        <img src="img/brokenshadows.png">
+                        <p><span>Broken Shadows</span>, a tile-based puzzle game created via MonoGame.</p>
+                    </div>
+                </a>
+                <a id="tyrais"  class="galleryItem" langTag="csharp">
+                    <img src="img/tyrais.png">
+                    <p><span>Tyrais</span>, a simple text-based RPG created with C# and Windows Forms.</p>
+                </a>
             </section>
         </div>
         <footer>
             <div id ="footer_banner">
                 <div>
-                    <h2>Contact Me</h2>
+                    <h1>Contact Me</h1>
                     <div>
                         <a id="gmail" class="social" href="mailto:alexplagman@gmail.com">
                             <img src="img/mail.png" height="50px">
@@ -76,6 +90,6 @@
         <script type="text/javascript" src="src/jquery.flexnav.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
         <script type="text/javascript" src="src/script.js"></script>
-        <script>$(".flexnav").flexNav({'calcItemWidths': true}); window.onscroll();</script>
+        <script>$(".flexnav").flexNav({'calcItemWidths': true});</script>
     </body>
 </html>

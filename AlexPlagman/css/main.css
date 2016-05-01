@@ -1,34 +1,36 @@
 html{
-    overflow-x: hidden;
     font-family: "Oxygen", sans-serif;
     text-align: center;
 }
 
 body {
     display: block;
-    background: #1B1B1B;
-    color: #000;
     margin: 0;
+    background: #1B1B1B;
+    
+    color: #000;
 }
 
 /** HEADER **/
 
 header {
     position: fixed;
-    height: 50px;
     width: 100%;
+    height: 50px;
+    border-bottom: 5px solid #0B0B0B;
     background: #1B1B1B;
     z-index: 99;
 }
 
 #menuButton {
+    background: #1B1B1B;
+    
     color: #FFF;
-    background-color: #1B1B1B;
     text-align: right;
 }
 
 #brand:hover {
-    color: #09D;
+    color: #0274B3;
 }
 
 #mainNav {
@@ -37,19 +39,20 @@ header {
 
 #mainNav li {
     display: block;
-    color: #FFF;
-    background-color: #1B1B1B;
     padding: 15px 0;
+    background: #1B1B1B;
+    
+    color: #FFF;
     text-decoration: none;
     
     transition: background-color 0.3s;
 }
 
-#mainNav li:hover:not(#brand):not(#ignore), .active {
-    background-color: #09D;
+#mainNav li:hover:not(#brand):not(.ignore), .active {
+    background-color: #0274B3;
 }
 
-#mainNav li:not(#ignore) {
+#mainNav li:not(.ignore) {
     cursor: pointer;
 }
 
@@ -59,26 +62,31 @@ header {
 
 #mainNav a {
     margin: 0;
-    line-height: 50px;
-    color: white;
     background: transparent;
+    
+    color: white;
+    line-height: 50px;
     text-decoration: none;
 }
 
 /** CONTENT **/
 
 #content {
-    display: block;
     position: relative;
+    display: block;
     margin: 0;
+    background: #3B3B3B;
     z-index: 2;
+}
+
+section {
+    border-bottom: 5px solid #0B0B0B;
 }
 
 .lead {
     display: block;
-    padding: .25em 0.25em 0;
+    padding: .25em;
     background: #FFF;
-    padding-bottom: .25em;
     
     font-size: 2em;
     font-weight: 300;
@@ -91,21 +99,16 @@ header {
 
 #tagline {
     margin-top: 1em;
+    
     font-size: 2em;
     font-weight: 700;
-}
-
-@media all and (max-width: 500px) {
-    .lead {
-        padding-top: 2em;
-        font-size: 1em;
-    }
+    font-style: italic;
 }
 
 #banner {
     display: block;
-    padding: 5px 0;
     margin-top: 1em;
+    padding: 5px 0;
     background: #FFF;
     
     font-size: 1.5em;
@@ -113,135 +116,183 @@ header {
 }
 
 #summary {
-    background: #334055;
+    width: 100%;
+    background: #3B3B3B;
+    padding-bottom: .5em;
+    
     color: #fff;
     text-align: center;
-    font-size: 1.25em;
 }
 
-#summary h1 {
+#summary * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#self {
+    min-width: 160px;
+    width: 20%;
+    padding: 1em;
+    
+    text-align: center;
+}
+
+#self img {
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 1);
+}
+
+#description * {
+    display: block;
+}
+
+#description h1 {
     margin-top: 0;
     padding-top: 1em;
 }
 
-#summary img {
+#description p {
+    margin: 0 .5em;
 }
 
-#summary p {
-    margin-bottom: 0;
-    padding-bottom: 1em;
+#skills {
+    display: block;
+    width: 95%;
+    max-width: 800px;
+    margin: 1em auto;
+    border: 6px solid #2B2B2B;
+    padding: 1em;
+    background: #303030;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+    
+    text-align: left;
+}
+
+#skills h1 {
+    margin: 0;
+    padding-bottom: .5em;
+    font-weight: normal;
+}
+
+.skillBar {
+    display: block;
+    margin-right: auto;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: .25em .5em;
+    background: #444;
+    
+    opacity: .7;   
+    transition: opacity .5s, background .5s, color .25s;
+}
+
+.skillBar:hover {
+    opacity: 1;
+}
+
+#csharpBar {
+    width: 95%;
+}
+#csharpBar:hover {
+    background: #68217A;
+}
+#javaBar {
+    width: 90%;
+}
+#javaBar:hover {
+    background: #E11F21;
+}
+#cssBar {
+    width: 80%;
+}
+#cssBar:hover {
+    background: #F16529;
+}
+#jsBar {
+    width: 80%;
+}
+#jsBar:hover {
+    background: #FDDA3E;
+    color: #000;
+}
+#pyBar {
+    width: 75%;
+}
+#pyBar:hover {
+    background: #4482B4;
 }
 
 /** PORTFOLIO **/
 
 #portfolio {
-    padding: 0 0.5em;
     position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1em;
+    padding: 0.5em 0;
     background: #E9EAEA;
 }
 
 #portfolio h1 {
-    padding-top: 1em;
     margin: 0;
-}
-
-#gallery {
-    margin: 0 25%;
-    width: 50%;
+    padding-top: 1em;
 }
 
 .galleryItem {
     display: inline-block;
-    background: #E9EAEA;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 2em;
+    width: 400px;
     margin-bottom: 1em;
-    width: 50%;
+    border-radius: 10px;
+    padding: .5em;   
+    background: #E9EAEA;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
     
-    color: #334055;
-    font-weight: bold;
+    color: #334055;   
+    cursor: pointer;
     list-style: none;
+    text-align: left;
     
     transition: background .5s, color .25s;
 }
 
 .galleryItem img {
-    display: none;
-    margin-bottom: 1em;
-}
-
-.galleryItem:hover {
-    color: #FFF;
-    background: #334055;
-}
-
-.galleryItem:hover p span {
-    display: block;
-}
-
-.galleryItem:hover img {
-    display: block;
-}
-
-.galleryItem:hover .githubLink {
-    display: block;
-}
-
-.galleryItem:hover p:after {
-    display: inline;
-    font-weight: normal;
-}
-
-#tyrais:hover p:after {
-    content: "A simple text-based RPG created with C# and Windows Forms.";
-}
-
-#brokenShadows:hover p:after {
-    content: "A tile-based puzzle game created via MonoGame.";
-}
-
-.githubLink {
-    display: none;
-    padding: 1em 0;
+    width: 358px;
+    height: 88px;
     border: 1px solid #000;
-    border-radius: 6px;
-    background: #E9EAEA;
-    color: #334055;
-    
-    font-weight: normal;
-    
-    transition: background .5s, color .25s;
 }
 
-.githubLink:hover {
-    background: #2B2B2B;
+.galleryItem span {
+    font-weight: bold;
+}
+
+.galItemHover {
+    background: #3B3B3B;
     color: #FFF;
-    cursor: pointer;
 }
 
-/*--------------------------------
-FOOTER
---------------------------------*/
+/** FOOTER **/
 
 footer {
+    position: relative;
     width: 100%;
     height: 240px;
-    overflow: hidden;
-    position: relative;
-    visibility: hidden;
     
     color: #FFF;
+    
+    overflow: hidden;
+    visibility: hidden;
 }
 
 #footer_banner {
+    position: fixed;
+    bottom: 30px;
     width: 100%;
     height: 200px;
+    padding-bottom: 1.5em;
     background: #1B1B1B;
-    position: fixed;
+    
     overflow: hidden;
-    bottom: 30px;
-    padding-bottom: .5em;
 }
 
 #footer_banner > div {
@@ -249,13 +300,18 @@ footer {
     width: 100%;
 }
 
+footer h1 {
+    font-size: 1.5em;
+    padding-top: .5em;
+}
+
 .social {
     position: relative;
-    display: inline-block;  
+    display: inline-block; 
+    margin-bottom: 5px; 
     border-radius: 6px;
     padding: .5em .25em;
-    margin-bottom: 5px;
-    vertical-align: middle;
+    
     text-decoration: none;
     
     transition: background .5s;
@@ -266,10 +322,11 @@ footer {
 }
 
 footer p {
-    margin: 0;
     position: relative;
-    text-align: center;
+    margin: 0;
+    
     color: #fff;
+    text-align: center;
 }
 
 #gmail:hover {
@@ -284,14 +341,29 @@ footer p {
     background: #0274B3;
 }
 
-#copyright p {
-    display: inline-block;
-    font-size: .9em;
+#copyright {
+    font-size: 0.8em;
 }
 
-/*--------------------------------
-Misc
---------------------------------*/
+/** MISC **/
+
+@media all and (max-width: 500px) {  
+    h1 {
+        font-size: 1.25em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    #tagline {
+        font-size: 1.25em;
+    }
+    .lead p {
+        font-size: 0.8em;
+    }
+    footer h1 {
+        padding-top: 0;
+    }
+}
 
 @keyframes fadeIn {
     0% { 
