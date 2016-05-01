@@ -1,0 +1,303 @@
+html{
+    overflow-x: hidden;
+    font-family: "Oxygen", sans-serif;
+    text-align: center;
+}
+
+body {
+    display: block;
+    background: #1B1B1B;
+    color: #000;
+    margin: 0;
+}
+
+/** HEADER **/
+
+header {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background: #1B1B1B;
+    z-index: 99;
+}
+
+#menuButton {
+    color: #FFF;
+    background-color: #1B1B1B;
+    text-align: right;
+}
+
+#brand:hover {
+    color: #09D;
+}
+
+#mainNav {
+    padding: 0;
+}
+
+#mainNav li {
+    display: block;
+    color: #FFF;
+    background-color: #1B1B1B;
+    padding: 15px 0;
+    text-decoration: none;
+    
+    transition: background-color 0.3s;
+}
+
+#mainNav li:hover:not(#brand):not(#ignore), .active {
+    background-color: #09D;
+}
+
+#mainNav li:not(#ignore) {
+    cursor: pointer;
+}
+
+#mainNav .navLink {
+    padding: 0;
+}
+
+#mainNav a {
+    margin: 0;
+    line-height: 50px;
+    color: white;
+    background: transparent;
+    text-decoration: none;
+}
+
+/** CONTENT **/
+
+#content {
+    display: block;
+    position: relative;
+    margin: 0;
+    z-index: 2;
+}
+
+.lead {
+    display: block;
+    padding: .25em 0.25em 0;
+    background: #FFF;
+    padding-bottom: .25em;
+    
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+}
+
+.lead p {
+    margin: 0;
+}
+
+#tagline {
+    margin-top: 1em;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+@media all and (max-width: 500px) {
+    .lead {
+        padding-top: 2em;
+        font-size: 1em;
+    }
+}
+
+#banner {
+    display: block;
+    padding: 5px 0;
+    margin-top: 1em;
+    background: #FFF;
+    
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#summary {
+    background: #334055;
+    color: #fff;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+#summary h1 {
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+#summary img {
+}
+
+#summary p {
+    margin-bottom: 0;
+    padding-bottom: 1em;
+}
+
+/** PORTFOLIO **/
+
+#portfolio {
+    padding: 0 0.5em;
+    position: relative;
+    background: #E9EAEA;
+}
+
+#portfolio h1 {
+    padding-top: 1em;
+    margin: 0;
+}
+
+#gallery {
+    margin: 0 25%;
+    width: 50%;
+}
+
+.galleryItem {
+    display: inline-block;
+    background: #E9EAEA;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 2em;
+    margin-bottom: 1em;
+    width: 50%;
+    
+    color: #334055;
+    font-weight: bold;
+    list-style: none;
+    
+    transition: background .5s, color .25s;
+}
+
+.galleryItem img {
+    display: none;
+    margin-bottom: 1em;
+}
+
+.galleryItem:hover {
+    color: #FFF;
+    background: #334055;
+}
+
+.galleryItem:hover p span {
+    display: block;
+}
+
+.galleryItem:hover img {
+    display: block;
+}
+
+.galleryItem:hover .githubLink {
+    display: block;
+}
+
+.galleryItem:hover p:after {
+    display: inline;
+    font-weight: normal;
+}
+
+#tyrais:hover p:after {
+    content: "A simple text-based RPG created with C# and Windows Forms.";
+}
+
+#brokenShadows:hover p:after {
+    content: "A tile-based puzzle game created via MonoGame.";
+}
+
+.githubLink {
+    display: none;
+    padding: 1em 0;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background: #E9EAEA;
+    color: #334055;
+    
+    font-weight: normal;
+    
+    transition: background .5s, color .25s;
+}
+
+.githubLink:hover {
+    background: #2B2B2B;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/*--------------------------------
+FOOTER
+--------------------------------*/
+
+footer {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+    visibility: hidden;
+    
+    color: #FFF;
+}
+
+#footer_banner {
+    width: 100%;
+    height: 200px;
+    background: #1B1B1B;
+    position: fixed;
+    overflow: hidden;
+    bottom: 30px;
+    padding-bottom: .5em;
+}
+
+#footer_banner > div {
+    position: absolute;
+    width: 100%;
+}
+
+.social {
+    position: relative;
+    display: inline-block;  
+    border-radius: 6px;
+    padding: .5em .25em;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    text-decoration: none;
+    
+    transition: background .5s;
+}
+
+.social img {
+    display: inline-block;
+}
+
+footer p {
+    margin: 0;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+#gmail:hover {
+    background: #D54B3D;
+}
+
+#git:hover {
+    background: #3B3B3B;
+}
+
+#linkedin:hover {
+    background: #0274B3;
+}
+
+#copyright p {
+    display: inline-block;
+    font-size: .9em;
+}
+
+/*--------------------------------
+Misc
+--------------------------------*/
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
