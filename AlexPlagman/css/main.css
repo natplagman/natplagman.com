@@ -86,8 +86,9 @@ section {
 .lead {
     display: block;
     padding: .25em;
-    background: #FFF;
+    background: #0274B3;
     
+    color: #FFF;
     font-size: 2em;
     font-weight: 300;
     text-align: center;
@@ -231,7 +232,9 @@ section {
     width: 100%;
     margin-bottom: 1em;
     padding: 0.5em 0;
-    background: #E9EAEA;
+    background: #0274B3;
+    
+    color: #FFF;
 }
 
 #portfolio h1 {
@@ -248,7 +251,7 @@ section {
     background: #E9EAEA;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
     
-    color: #334055;   
+    color: #000;   
     cursor: pointer;
     list-style: none;
     text-align: left;
