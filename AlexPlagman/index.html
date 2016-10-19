@@ -2,8 +2,7 @@
 <html>
     <head>
         <title>Alex Plagman</title>
-        <link href="https://fonts.googleapis.com/css?family=Oxygen:300,700" rel="stylesheet" type="text/css">       
-        <link href="css/flexnav.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body> 
@@ -14,7 +13,7 @@
                 <li onclick="$(window).scrollTo($('#summary'), 400, {offset: -50});">About</li>
                 <li onclick="$(window).scrollTo($('#portfolio'), 400);">Portfolio</li>
                 <li onclick="$(window).scrollTo($('footer'), 400);">Contact</li>
-                <li class="navLink"><a href="blog.html">Blog</a></li>
+                <li class="navLink"><a href="/blog/">Blog</a></li>
             </ul>
         </header>     
         <div id="content">
@@ -24,9 +23,6 @@
             </section>
             <section id="summary">
                 <div>
-                    <div id="self">
-                        <img src="img/me.jpg" title="Yours truly.">
-                    </div>
                     <div id="description">
                         <h1>About Me</h1>
                         <p>I'm Alex Plagman, currently earning a Bachelor's in Computer Science at Eastern Washington University.<br>
@@ -60,6 +56,10 @@
                     <img src="img/tyrais.png">
                     <p><span>Tyrais</span>, a simple text-based RPG created with C# and Windows Forms.</p>
                 </a>
+                <a id="gatherer"  class="galleryItem" langTag="java">
+                    <img src="img/gatherer.png">
+                    <p><span>Gatherer Revamp</span>, a Minecraft mod focused on efficiency and diversity.</p>
+                </a>
             </section>
         </div>
         <footer>
@@ -68,20 +68,17 @@
                     <h1>Contact Me</h1>
                     <div>
                         <a id="gmail" class="social" href="mailto:alexplagman@gmail.com">
-                            <img src="img/mail.png" height="50px">
-                            <p>alexplagman<wbr>@gmail.com</p>
+                            <img src="img/mail.png">
                         </a>
                         <a id="git" class="social" href="https://github.com/APlagman">
-                            <img src="img/GitHub-Mark-Light-120px-plus.png" height="50px">
-                            <p>github.com/<wbr>aplagman</p>
+                            <img src="img/GitHub-Mark-Light-120px-plus.png">
                         </a>
                         <a id="linkedin" class="social" href="https://www.linkedin.com/in/alexplagman">
-                        <img src="img/linkedin-transparent.png" height="50px">
-                        <p>linkedin.com/<wbr>in/alexplagman</p>
+                        <img src="img/li-transparent.png">
                         </a>
                     </div>
                     <div id="copyright">
-                        <p>This website originally created by me in 2016.<br>That being said, feel free to use whatever you would like. Zero Rights Reserved.</p>
+                        &copy; 2016, Alex Plagman.
                     </div>
                 </div>
             </div>
