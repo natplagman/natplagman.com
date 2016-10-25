@@ -30,7 +30,7 @@
                 As a student, I enjoy creating prototypes of games in my free time. I find it to be a reliable creative outlet as well as an exciting way to become better at programming. I don't have enough ability in other areas of game development (i.e. graphics and sound design) to create full-fledged games on my own, but I do love to solve problems on the technical side.
             </p>
             <p class="visModule">
-                Earlier this year, I started work on a simple 2D tile engine. I had no major plans for the project, but was interested in learning what elements are required for 2D grid-based games such as the recently-popular <a href="http://stardewvalley.net/">Stardew Valley</a>, <a href="http://rimworldgame.com">RimWorld</a>, or even a game as old as The Legend of Zelda: A Link to the Past:
+                Earlier this year, I started work on a simple 2D tile engine. I had no major plans for the project, but was interested in learning what elements are required for 2D grid-based games such as the recently-popular&nbsp;<a href="http://stardewvalley.net/">Stardew Valley</a>,&nbsp;<a href="http://rimworldgame.com">RimWorld</a>, or even a game as old as The Legend of Zelda: A Link to the Past:
             </p>
             <div class="visModule">
                 <figure>
@@ -48,7 +48,7 @@
                 <button class="loadimg" data-url="../../../../img/bsmove.gif">Load Image</button>
             </div>
             <p class="visModule">
-                It was around this point where I realized turning my tile engine into something more could be an endeavor worth exploring. Originally, I had the notion of creating a simple 2D puzzle game where the player would shift tiles around to reach the goal. Most games built around this idea use buttons, switches, or various controllable tiles to accomplish it. I instead designed a system where certain non-ridged tiles would move around on their own <i>any time the player moves.</i>
+                It was around this point where I realized turning my tile engine into something more could be an endeavor worth exploring. Originally, I had the notion of creating a simple 2D puzzle game where the player would shift tiles around to reach the goal. Most games built around this idea use buttons, switches, or various controllable tiles to accomplish it. I instead designed a system where certain non-ridged tiles would move around on their own&nbsp;<i>any time the player moves.</i>
             </p>
             <div class="visModule">
                 <figure>
@@ -57,7 +57,7 @@
                 <button class="loadimg" data-url="../../../../img/bsshift.gif">Load Image</button>
             </div>
             <p class="visModule">
-                I made this movement animation smooth later on, but the mechanics remain in the game. At this point, I had to decide what features would be crucial to the theme of the project. I decided upon the title "Broken Shadows", relating to a gameplay experience revolving around light and darkness. Originally, I toyed with spotlights, but decided it would be more educational to implement a proper visibility algorithm. I researched for a while and found <a href="http://www.redblobgames.com/articles/visibility/">several</a> <a href="http://journal.stuffwithstuff.com/2015/09/07/what-the-hero-sees/">articles</a> on 2D visibility, ultimately using the work of <a href="http://roy-t.nl/2014/02/27/2d-lighting-and-shadows-preview.html">Roy Triesscheijn</a> to avoid having to reinvent the wheel.
+                I made this movement animation smooth later on, but the mechanics remain in the game. At this point, I had to decide what features would be crucial to the theme of the project. I decided upon the title "Broken Shadows", relating to a gameplay experience revolving around light and darkness. Originally, I toyed with spotlights, but decided it would be more educational to implement a proper visibility algorithm. I researched for a while and found&nbsp;<a href="http://www.redblobgames.com/articles/visibility/"> several</a>&nbsp;<a href="http://journal.stuffwithstuff.com/2015/09/07/what-the-hero-sees/"> articles</a>&nbsp;on 2D visibility, ultimately using the work of&nbsp;<a href="http://roy-t.nl/2014/02/27/2d-lighting-and-shadows-preview.html"> Roy Triesscheijn</a>&nbsp;to avoid having to reinvent the wheel.
             </p>
             <p class="visModule">
                 Roy's algorithm treats every light occluder as a separate object with its own edges and vertices. This is fine in most cases but is highly inefficient for the smooth, connected walls of Broken Shadows. My first step was to enlist the help of a friend to design an algorithm that could join adjacent tiles together. Unfortunately, this had the side effect of revealing yet another problem within Roy's algorithm. Light sources have a radius, essentially creating a large box around the light which limits its range. By default, the algorithm had no way to detect whether this radius box was intersecting with the surrounding walls of the scene, causing some fairly obnoxious behavior:
@@ -107,7 +107,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script type="text/javascript" src="../../../../src/gifffer.min.js"></script>
-    <script type="text/javascript" src="../../../../src/script.js"></script>
+    <script type="text/javascript" src="../../../../src/script.min.js"></script>
 </body>
 
 </html>

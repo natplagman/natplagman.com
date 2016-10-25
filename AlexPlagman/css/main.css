@@ -249,6 +249,7 @@ section {
     cursor: pointer;
     list-style: none;
     text-align: left;
+    text-decoration: none;
     transition: .5s;
 }
 

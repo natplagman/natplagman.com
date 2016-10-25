@@ -45,7 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-/AlexPlagman/src/jsPlumb-2.1.7-min.js
 /AlexPlagman/min-html.bat
 /AlexPlagman/min-html - Copy.bat
 /AlexPlagman/min-css.bat
@@ -55,3 +54,6 @@ Temporary Items
 /AlexPlagman/css/flexnav.css
 /AlexPlagman/Minified/
 /AlexPlagman/.vscode/
+/AlexPlagman/min-html-blog.bat
+/AlexPlagman/min-html-blog-light.bat
+Resources/
