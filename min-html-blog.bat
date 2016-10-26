@@ -1,1 +1,0 @@
-html-minifier --remove-comments --collapse-whitespace --collapse-inline-tag-whitespace --collapse-boolean-attributes C:\Programming\Web\AlexPlagman\blog\index.html -o C:\Programming\Web\AlexPlagman\Minified\blog\index.html

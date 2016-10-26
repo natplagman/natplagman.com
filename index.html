@@ -13,10 +13,10 @@
         <div id="menuButton" class="menu-button">Menu</div>
         <nav id="mainNav">
             <ul class="flexnav one-page" data-breakpoint="850">
-                <li onclick="$(window).scrollTo($('#content'), 400, {offset: {top:-50} });">Home</li>
-                <li onclick="$(window).scrollTo($('#portfolio'), 400, {offset: {top:-50} });">Portfolio</li>
-                <li onclick="$(window).scrollTo($('footer'), 400);">Contact</li>
-                <li class="navLink"><a href="./blog/">Blog</a></li>
+                <li class="noselect" onclick="$(window).scrollTo($('#content'), 400, {offset: {top:-50} });">Home</li>
+                <li class="noselect" onclick="$(window).scrollTo($('#portfolio'), 400, {offset: {top:-50} });">Portfolio</li>
+                <li class="noselect" onclick="$(window).scrollTo($('footer'), 400);">Contact</li>
+                <li class="navLink noselect"><a href="./blog/">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -35,7 +35,8 @@
                     <div id="csharpBar" class="skillBar" langTag="csharp">C#</div>
                     <div id="javaBar" class="skillBar" langTag="java">Java</div>
                     <div id="cssBar" class="skillBar" langTag="web">HTML / CSS</div>
-                    <div id="jsBar" class="skillBar" langTag="javascript">JavaScript</div>
+                    <div id="jsBar" class="skillBar" langTag="javascript">JavaScript / TypeScript</div>
+                    <div id="sqlBar" class="skillBar" langTag="sql">SQL</div>
                     <div id="pyBar" class="skillBar" langTag="python">Python</div>
                 </div>
                 <p>Coding shouldn't have to be complicated. For me, it's fun.
@@ -47,7 +48,7 @@
             <h1>Portfolio</h1>
             <div id="projects">
                 <p>
-                    You can view my professional resume&nbsp;<a href="https://drive.google.com/file/d/0B15elo9El0xXMmgzNFI5WHFDb2M/view?usp=sharing"> here</a>.
+                    You can view my professional resume&nbsp;<a href="https://drive.google.com/file/d/0B5jgB0i7jLveQWN2eWhvQUJackE/view?usp=sharing"> here</a>.
                 </p>
                 <a id="brokenShadows" class="galleryItem" langTag="csharp" href="https://github.com/APlagman/Broken-Shadows">
                     <img src="img/brokenshadows.png">
@@ -64,6 +65,14 @@
                     <span>Gatherer Revamp</span>
                     <p>A Minecraft mod focused on efficiency and diversity.</p>
                 </a>
+                <a id="dining" class="galleryItem" langTag="csharp" href="https://github.com/APlagman/DiningScheduler">
+                    <img src="img/dining.png">
+                    <span>Dining Services Planner</span>
+                    <p>Displays a list of available EWU dining services based on the time and day.</p>
+                </a>
+                <p>
+                    You can view the code for this site&nbsp;<a href="https://github.com/APlagman/AlexPlagman.com"> here</a>.
+                </p>
             </div>
         </section>
     </div>

@@ -189,7 +189,7 @@ section {
 }
 
 #cssBar {
-    width: 80%;
+    width: 85%;
 }
 
 #cssBar:hover {
@@ -197,12 +197,20 @@ section {
 }
 
 #jsBar {
-    width: 80%;
+    width: 85%;
 }
 
 #jsBar:hover {
     background: #FDDA3E;
     color: #000;
+}
+
+#sqlBar {
+    width: 80%;
+}
+
+#sqlBar:hover {
+    background: #22ad3c;
 }
 
 #pyBar {
@@ -237,6 +245,7 @@ section {
 
 .galleryItem {
     display: inline-block;
+    vertical-align: top;
     width: 45%;
     margin: 0 0.25em 1em 0.25em;
     border-radius: 10px;
@@ -263,6 +272,7 @@ section {
     display: block;
     width: 90%;
     max-width: 358px;
+    max-height: 88px;
     border: 1px solid #000;
 }
 
@@ -593,6 +603,20 @@ footer p {
     #entry p {
         width: 70%;
     }
+    
+    .galleryItem a {
+	    text-decoration: none;
+    }
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 
 @keyframes fadeIn {

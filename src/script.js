@@ -136,6 +136,7 @@ $(document).ready(function () {
 
 $(window).resize(function () {
     $galleryItems.matchHeight._update();
+    console.log($galleryItems.size());
     window.onscroll();
 });
 
@@ -288,3 +289,7 @@ var entryDate = function () {
     var diff = Date.daysBetween(date, today);
     $("#entryTimeStamp").text("Posted " + diff + " days ago on " + Date.getMonthName(date) + " " + Date.getDayName(date) + ", " + (date.getYear() + 1900));
 }
+
+$(".flexnav").on("click", function (event) {
+    $(this).removeClass("flexnav-show");
+});

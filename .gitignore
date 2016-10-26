@@ -54,3 +54,10 @@ Temporary Items
 /.vscode/
 /min-html-blog.bat
 /min-html-blog-light.bat
+/Minified/min-css.bat
+/Minified/min-html.bat
+/Minified/min-html-blog.bat
+/Minified/min-html-blog-light.bat
+/Minified/min-js.bat
+/.htaccess
+src/.vscode/tasks.json
