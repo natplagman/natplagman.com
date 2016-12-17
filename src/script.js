@@ -136,9 +136,13 @@ $(document).ready(function () {
 
 $(window).resize(function () {
     $galleryItems.matchHeight._update();
-    console.log($galleryItems.size());
-    window.onscroll();
+    // Wait for maximize to complete
+    setTimeout(function () {
+        window.onscroll();
+    }, 100);
 });
+
+$(window)
 
 $(".loadimg").on("click", function (event) {
     var $figure = $(this).siblings("figure");
@@ -287,7 +291,7 @@ var entryDate = function () {
     var dmy = $entry.attr("date").split('/');
     var date = new Date(dmy[0], dmy[1] - 1, dmy[2]);
     var diff = Date.daysBetween(date, today);
-    $("#entryTimeStamp").text("Posted " + diff + " days ago on " + Date.getMonthName(date) + " " + Date.getDayName(date) + ", " + (date.getYear() + 1900));
+    $("#entryTimeStamp").text("Posted " + ((diff == 0) ? " today " : diff + ((diff == 1) ? " day ago" : " days ago")) + " on " + Date.getMonthName(date) + " " + Date.getDayName(date) + ", " + (date.getYear() + 1900));
 }
 
 $(".flexnav").on("click", function (event) {

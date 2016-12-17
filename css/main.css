@@ -373,7 +373,7 @@ section {
 
 #entry p {
     display: block;
-    width: 50%;
+    width: 80%;
     margin: auto;
     margin-bottom: 1em;
     padding: 0;
@@ -381,12 +381,22 @@ section {
     text-indent: 2em;
 }
 
+@media screen and (min-width: 950px) {
+    #entry p {
+        width: 60%;
+    }
+}
+
 #entry a {
-    color: #1284D3;
+    color: #0000EE;
     text-decoration: none;
 }
 
-#entry a:hover not(#jumpTop) {
+#entry a:visited {
+    color: #551A8B;
+}
+
+#entry a:hover:not(#jumpTop) {
     text-decoration: underline;
 }
 
@@ -411,8 +421,9 @@ section {
 
 #jumpTop {
     margin-bottom: 1em;
+    color: #1284D3 !important;
     cursor: pointer;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 #jumpTop:hover {
@@ -603,19 +614,24 @@ footer p {
     #entry p {
         width: 70%;
     }
-    
     .galleryItem a {
-	    text-decoration: none;
+        text-decoration: none;
     }
 }
 
 .noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
                                   not supported by any browser */
 }
 
@@ -633,13 +649,7 @@ footer p {
 }
 
 .come-in {
-    animation: come-in 1.2s ease forwards;
-}
-
-@keyframes come-in {
-    to {
-        opacity: 100;
-    }
+    animation: fadeIn 0.8s ease forwards;
 }
 
 
