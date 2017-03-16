@@ -1,3 +1,9 @@
+/* Todo:
+    Optimize drawing code
+    Speed settings
+    Size settings
+*/
+
 var gridWidth = 50; // Number of columns (cells)
 var gridHeight = 50; // Number of rows (cells)
 var cellSize = 10; // px
@@ -7,7 +13,6 @@ var cellFillStyle = "#fff";
 var gridStrokeStyle = "#666";
 
 var updateInterval = 100; //ms
-var paused;
 
 var width = gridWidth * (cellSize + lineWidth) - lineWidth;
 var height = gridHeight * (cellSize + lineWidth) - lineWidth;
@@ -80,7 +85,6 @@ function draw(context, currentState, holdingMouse, mousePos, rect, setValue) {
 
     // Draw each cell
     context.fillStyle = cellFillStyle;
-    context.beginPath();
     for (var y = 0; y < gridHeight; ++y) {
         var yPos = (cellSize + lineWidth) * y;
         for (var x = 0; x < gridWidth; ++x) {
@@ -90,13 +94,12 @@ function draw(context, currentState, holdingMouse, mousePos, rect, setValue) {
             }
         }
     }
-    context.stroke();
 }
 
-function update(previousState, currentState) {
+function update(currentState, paused) {
     if (paused) return;
 
-    previousState = JSON.parse(JSON.stringify(currentState));
+    var previousState = JSON.parse(JSON.stringify(currentState));
 
     for (var y = 0; y < gridHeight; ++y) {
         for (var x = 0; x < gridWidth; ++x) {
@@ -120,13 +123,8 @@ function start() {
     var context = canvas.getContext("2d");
 
     var currentState = new Array(gridHeight);
-    var previousState = new Array(gridHeight);
-    for (var i = 0; i < height; ++i) {
-        currentState[i] = new Array(gridWidth);
-        previousState[i] = new Array(gridWidth);
-    }
-
     for (var y = 0; y < gridHeight; ++y) {
+        currentState[y] = new Array(gridWidth);
         for (var x = 0; x < gridWidth; ++x) {
             currentState[y][x] = 0;
         }
@@ -138,12 +136,12 @@ function start() {
     //console.log("Canvas size: " + width + " by " + height + ", Grid size: " + gridWidth + " by " + gridHeight);
     context.lineWidth = lineWidth;
 
-    paused = true;
+    var paused = true;
     var holdingMouse = false;
     var mousePos, setValue = 1;
 
     setInterval(function () {
-        update(previousState, currentState)
+        update(currentState, paused);
     }, updateInterval);
     setInterval(function () {
         draw(context, currentState, holdingMouse, mousePos, rect, setValue)
@@ -154,7 +152,7 @@ function start() {
         mousePos = [event.clientX, event.clientY];
         var cellPos = getCellFromMousePos(mousePos, canvas.getBoundingClientRect());
         setValue = !currentState[cellPos[1]][cellPos[0]];
-        console.log("setValue: " + setValue);
+        //console.log("setValue: " + setValue);
     });
 
     $("#grid").on("mousemove", function (event) {
@@ -164,17 +162,25 @@ function start() {
     $("#grid").on("mouseup", function (event) {
         holdingMouse = false;
     });
-}
 
-var pauseButton = $("#pauseButton");
+    $(window).scroll(function (event) {
+        rect = canvas.getBoundingClientRect();
+    });
 
-function togglePaused() {
-    paused = !paused;
-    pauseButton.text((paused) ? "Play" : "Pause");
-}
+    $(window).resize(function (event) {
+        rect = canvas.getBoundingClientRect();
+    });
 
-pauseButton.on("click", function (event) {
-    togglePaused();
+    var pauseButton = $("#pauseButton");
+
+    function togglePaused() {
+        paused = !paused;
+        pauseButton.text((paused) ? "Play" : "Pause");
+    }
+
+    pauseButton.on("click", function (event) {
+        togglePaused(paused);
 });
+}
 
 start();
