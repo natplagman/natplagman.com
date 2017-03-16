@@ -1,0 +1,31 @@
+#game {
+    display: block;
+    background: #fff;
+    padding-top: 3.5em;
+    padding-bottom: 1em;
+    color: #000;
+}
+
+#game button {
+    display: block;
+    margin: 0.25em auto;
+    padding: 0.2em 1em;
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+}
+
+#game button:hover {
+    background-color: #1284D3;
+    color: #fff;
+}
+
+#menu {
+    display: block;
+}
+
+#grid {
+    display: inline-block;
+    border: 2px solid #aaa;
+    background: #000;
+}
