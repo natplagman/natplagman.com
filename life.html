@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!--TODO: Make mobile-friendly.-->
 <head>
     <title>Alex Plagman - Conway's Game of Life</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,15 +21,26 @@
             </ul>
         </nav>
     </header>
-    <div id="game">
-        <h1>Conway's Game of Life</h1>
-        <canvas id="grid" width="599" height="599">
-            Sorry, your browser does not support the &lt;canvas&gt; element.
-        </canvas>
-        <div id="menu">
-            <button id="pauseButton">Play</button>
-            <h4>Instructions</h4>
+    <div id="content">
+        <div id="info">
+            <h3>Instructions</h3>
             <p>Click and/or drag on a dead cell to enable cells or on a live cell to disable cells.</p>
+            <h3>Rules</h3>
+            <div id="ruleList">
+                <li>Any living cell with less than 2 neighbors will die.</li>
+                <li>Any living cell with more than 3 neighbors will die.</li>
+                <li>Any dead cell with exactly 3 neighbors will become alive.</li>
+            </div>
+        </div>
+        <div id="game">
+            <h1>Conway's Game of Life</h1>
+            <canvas id="grid" width="599" height="599">
+                Sorry, your browser does not support the &lt;canvas&gt; element.
+            </canvas>
+            <div id="menu">
+                <button id="pauseButton">Play</button>
+                <button id="clearButton">Clear</button>
+            </div>
         </div>
     </div>
     <footer>

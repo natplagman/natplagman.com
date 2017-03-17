@@ -1,5 +1,4 @@
 /* Todo:
-    Optimize drawing code
     Speed settings
     Size settings
 */
@@ -10,29 +9,45 @@ var cellSize = 10; // px
 var lineWidth = 2.0;
 
 var cellFillStyle = "#fff";
+var cellEmptyStyle = "#000";
+var highlightFillStyle = "#faa";
 var gridStrokeStyle = "#666";
 
 var updateInterval = 100; //ms
+var drawInterval = 1; //ms
 
 var width = gridWidth * (cellSize + lineWidth) - lineWidth;
 var height = gridHeight * (cellSize + lineWidth) - lineWidth;
 
 function getCellFromMousePos(mousePos, rect) {
+    if (mousePos[0] < rect.left || mousePos[0] > rect.right || mousePos[1] < rect.top || mousePos[1] > rect.bottom) {
+        return [-1, -1];
+    }
     var posX = Math.floor((mousePos[0] - rect.left) / (cellSize + lineWidth));
     var posY = Math.floor((mousePos[1] - rect.top) / (cellSize + lineWidth));
     return [posX, posY];
 }
 
-function toggleCell(currentState, pos) {
-    //console.log("Toggled cell " + pos[0] + ", " + pos[1]);
-    currentState[pos[1]][pos[0]] = !currentState[pos[1]][pos[0]];
+function isValidCell(cellPos) {
+    return (cellPos[0] >= 0 && cellPos[0] < gridWidth && cellPos[1] >= 0 && cellPos[1] < gridHeight);
 }
 
-function setCell(currentState, pos, val) {
-    currentState[pos[1]][pos[0]] = val;
+function setCell(currentState, pos, val, updatedCells) {
+    if (isValidCell(pos)) {
+        currentState[pos[1]][pos[0]] = val;
+        updatedCells.push([pos[0], pos[1]]);
+    }
 }
 
-function countNeighbors(state, x, y) {
+function clearCells(currentState) {
+    for (var y = 0; y < gridHeight; ++y) {
+        for (var x = 0; x < gridWidth; ++x) {
+            currentState[y][x] = 0;
+        }
+    }
+}
+
+function countLivingNeighbors(state, x, y) {
     var count = 0;
     for (var i = -1; i <= 1; ++i) {
         var yPos = y + i;
@@ -44,21 +59,21 @@ function countNeighbors(state, x, y) {
             if (xPos < 0) xPos += gridWidth;
             if (xPos >= gridWidth) xPos -= gridWidth;
 
-            //console.log("Neighbor at " + x + ", " + y);
             count += state[yPos][xPos];
         }
     }
 
     if (state[y][x] == 1) {
-        --count;
+        --count; // The cell itself shouldn't be counted as a living neighbor
     }
 
     return count;
 }
 
-function drawGrid(context) {
+function drawGridLines(context) {
     context.strokeStyle = gridStrokeStyle;
     context.beginPath();
+
     // Draw horizontal lines
     for (var y = 1; y < gridHeight; ++y) {
         context.moveTo(0, (cellSize + lineWidth / 2) * y + (lineWidth / 2) * (y - 1));
@@ -74,45 +89,76 @@ function drawGrid(context) {
     context.stroke();
 }
 
-function draw(context, currentState, holdingMouse, mousePos, rect, setValue) {
-    if (holdingMouse) {
-        var cellPos = getCellFromMousePos(mousePos, rect);
-        setCell(currentState, cellPos, setValue);
-    }
-
-    context.clearRect(0, 0, width, height);
-    drawGrid(context);
-
-    // Draw each cell
-    context.fillStyle = cellFillStyle;
-    for (var y = 0; y < gridHeight; ++y) {
+function removeHighlight(context, currentState, highlightedCellPos) {
+    // Remove the previous highlight if applicable
+    if (isValidCell(highlightedCellPos)) {
+        var x = highlightedCellPos[0];
+        var y = highlightedCellPos[1];
+        var xPos = (cellSize + lineWidth) * x;
         var yPos = (cellSize + lineWidth) * y;
-        for (var x = 0; x < gridWidth; ++x) {
-            if (currentState[y][x] == 1) {
-                var xPos = (cellSize + lineWidth) * x;
-                context.fillRect(xPos, yPos, cellSize, cellSize);
-            }
+        
+        if (currentState[y][x] == 1) {
+            context.fillStyle = cellFillStyle;
+            context.fillRect(xPos, yPos, cellSize, cellSize);
+        } else {
+            context.fillStyle = cellEmptyStyle;
+            context.fillRect(xPos, yPos, cellSize, cellSize);
         }
     }
 }
 
-function update(currentState, paused) {
+function drawHighlight(context, currentState, currentCellPos) { 
+    // Draw transparent preview of currently moused-over cell if applicable
+    if (isValidCell(currentCellPos)) {
+        context.globalAlpha = 0.6;
+        context.fillStyle = highlightFillStyle;
+        context.fillRect((cellSize + lineWidth) * currentCellPos[0], (cellSize + lineWidth) * currentCellPos[1], cellSize, cellSize);
+        
+        context.globalAlpha = 1.0;
+    }
+}
+
+function draw(context, currentState, currentCellPos, updatedCells) {
+    // Redraw only updated cells
+    for (var i = 0; i < updatedCells.length; ++i) {
+        var x = updatedCells[i][0];
+        var y = updatedCells[i][1];
+        var xPos = (cellSize + lineWidth) * x;
+        var yPos = (cellSize + lineWidth) * y;
+        
+        if (currentState[updatedCells[i][1]][x] == 1) {
+            context.fillStyle = cellFillStyle;
+            context.fillRect(xPos, yPos, cellSize, cellSize);
+        } else {
+            context.fillStyle = cellEmptyStyle;
+            context.fillRect(xPos, yPos, cellSize, cellSize);
+        }
+    }
+    updatedCells = [];
+    
+    // Highlight should be drawn on top
+    drawHighlight(context, currentState, currentCellPos);
+}
+
+function update(currentState, paused, updatedCells) {
     if (paused) return;
 
     var previousState = JSON.parse(JSON.stringify(currentState));
 
+    // Iterate through the grid, updating cells based on their neighbors in the previous state
     for (var y = 0; y < gridHeight; ++y) {
         for (var x = 0; x < gridWidth; ++x) {
-            var neighbors = countNeighbors(previousState, x, y);
-            if (neighbors != 0) {
-                //console.log("Cell " + x + ", " + y + " has " + neighbors + " neighbors.");
-            }
-            if (neighbors < 2) {
-                currentState[y][x] = 0;
-            } else if (neighbors > 3) {
-                currentState[y][x] = 0;
+            
+            var neighbors = countLivingNeighbors(previousState, x, y);
+            if (currentState[y][x] == 1) {
+                if (neighbors < 2 || neighbors > 3) {
+                    // Living ells with less than 2 neighbors die by underpopulation
+                    // Living cells with greater than 3 neighbors die by overpopulation
+                    setCell(currentState, [x, y], 0, updatedCells);
+                }
             } else if (neighbors == 3) {
-                currentState[y][x] = 1;
+                // Dead cells with exactly 3 neighbors should become alive
+                setCell(currentState, [x, y], 1, updatedCells);
             }
         }
     }
@@ -132,43 +178,53 @@ function start() {
 
     canvas.width = width;
     canvas.height = height;
-    var rect = canvas.getBoundingClientRect();
-    //console.log("Canvas size: " + width + " by " + height + ", Grid size: " + gridWidth + " by " + gridHeight);
     context.lineWidth = lineWidth;
 
     var paused = true;
     var holdingMouse = false;
-    var mousePos, setValue = 1;
+    var mousePos;
+    var setValue = 1;
+    var updatedCells = [];
+    var highlightedCell = [-1, -1], currentCellPos = [-1, -1];
 
+    drawGridLines(context);
+    
     setInterval(function () {
-        update(currentState, paused);
+        update(currentState, paused, updatedCells);
     }, updateInterval);
     setInterval(function () {
-        draw(context, currentState, holdingMouse, mousePos, rect, setValue)
-    }, updateInterval / 2);
+        draw(context, currentState, currentCellPos, updatedCells);
+    }, drawInterval);
+    
+    // Set event listeners (JavaScript, you really need less-convoluted pass-by-reference capabilities)
 
-    $("#grid").on("mousedown", function (event) {
-        holdingMouse = true;
-        mousePos = [event.clientX, event.clientY];
-        var cellPos = getCellFromMousePos(mousePos, canvas.getBoundingClientRect());
-        setValue = !currentState[cellPos[1]][cellPos[0]];
-        //console.log("setValue: " + setValue);
+    $(window).on("mousedown", function (event) {
+        if (isValidCell(currentCellPos)) {
+            holdingMouse = true;
+            setValue = !currentState[currentCellPos[1]][currentCellPos[0]];
+            setCell(currentState, currentCellPos, setValue, updatedCells);
+        }
     });
 
-    $("#grid").on("mousemove", function (event) {
+    $(window).on("mousemove", function (event) {
         mousePos = [event.clientX, event.clientY];
+        var oldCellPos = currentCellPos;
+        currentCellPos = getCellFromMousePos(mousePos, canvas.getBoundingClientRect());
+        if (oldCellPos[0] != currentCellPos[0] || oldCellPos[1] != currentCellPos[1] || (isValidCell(oldCellPos) && !isValidCell(currentCellPos))) {
+            removeHighlight(context, currentState, oldCellPos);
+            drawHighlight(context, currentState, currentCellPos);
+        }
+
+        if (isValidCell(currentCellPos)) {
+            // Update the clicked cell if applicable
+            if (holdingMouse) {
+                setCell(currentState, currentCellPos, setValue, updatedCells);
+            }
+    }
     });
 
-    $("#grid").on("mouseup", function (event) {
+    $(window).on("mouseup", function (event) {
         holdingMouse = false;
-    });
-
-    $(window).scroll(function (event) {
-        rect = canvas.getBoundingClientRect();
-    });
-
-    $(window).resize(function (event) {
-        rect = canvas.getBoundingClientRect();
     });
 
     var pauseButton = $("#pauseButton");
@@ -180,7 +236,11 @@ function start() {
 
     pauseButton.on("click", function (event) {
         togglePaused(paused);
-});
+    });
+    
+    $("#clearButton").on("click", function (event) {
+        clearCells(currentState); 
+    });
 }
 
 start();

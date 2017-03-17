@@ -1,31 +1,75 @@
-#game {
-    display: block;
+body {
+    background: #1284D3;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    margin: 0 auto;
     background: #fff;
     padding-top: 3.5em;
     padding-bottom: 1em;
     color: #000;
+    overflow: hidden;
+    border-bottom: 5px solid #000;
 }
 
-#game button {
-    display: block;
-    margin: 0.25em auto;
-    padding: 0.2em 1em;
-    border: 2px solid #000;
-    background-color: #fff;
-    color: #000;
-}
-
-#game button:hover {
-    background-color: #1284D3;
-    color: #fff;
-}
-
-#menu {
-    display: block;
+#game {
+    display: inline-block;
+    margin-left: 2em;
 }
 
 #grid {
     display: inline-block;
     border: 2px solid #aaa;
     background: #000;
+}
+
+#menu {
+    display: block;
+    margin: 0 auto;
+    padding: 0.1em 0 0.25em 0;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background: #A0CDED;
+    overflow: hidden;
+}
+
+#menu button {
+    display: inline-block;
+    margin: 0.25em 0.25em;
+    padding: 0.2em 1em;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 1px 2px #000;
+    background-color: #fff;
+    color: #000;
+}
+
+#menu button:hover {
+    background-color: #1284D3;
+    color: #fff;
+}
+
+#menu button:active {
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+#info {
+    display: inline-block;
+    max-width: 15%;
+    margin: 1em;
+}
+
+#info p {
+    text-align: left;
+}
+
+#ruleList {
+	text-align: left;
+    font-size: 0.9em;
 }
