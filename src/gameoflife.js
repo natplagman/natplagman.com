@@ -134,7 +134,7 @@ function draw(context, currentState, currentCellPos, updatedCells) {
             context.fillRect(xPos, yPos, cellSize, cellSize);
         }
     }
-    updatedCells = [];
+    updatedCells.length = 0;
     
     // Highlight should be drawn on top
     drawHighlight(context, currentState, currentCellPos);
