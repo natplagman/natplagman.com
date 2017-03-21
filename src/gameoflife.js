@@ -14,7 +14,6 @@ var highlightFillStyle = "#faa";
 var gridStrokeStyle = "#666";
 
 var updateInterval = 100; //ms
-var drawInterval = 1; //ms
 
 var width = gridWidth * (cellSize + lineWidth) - lineWidth;
 var height = gridHeight * (cellSize + lineWidth) - lineWidth;
@@ -34,15 +33,18 @@ function isValidCell(cellPos) {
 
 function setCell(currentState, pos, val, updatedCells) {
     if (isValidCell(pos)) {
-        currentState[pos[1]][pos[0]] = val;
-        updatedCells.push([pos[0], pos[1]]);
+        // No need to update anything if the cell won't be changed
+        if (currentState[pos[1]][pos[0]] != val) {
+            currentState[pos[1]][pos[0]] = val;
+            updatedCells.push([pos[0], pos[1]]);
+        }
     }
 }
 
-function clearCells(currentState) {
+function clearCells(currentState, updatedCells) {
     for (var y = 0; y < gridHeight; ++y) {
         for (var x = 0; x < gridWidth; ++x) {
-            currentState[y][x] = 0;
+            setCell(currentState, [x, y], 0, updatedCells);
         }
     }
 }
@@ -134,17 +136,19 @@ function draw(context, currentState, currentCellPos, updatedCells) {
             context.fillRect(xPos, yPos, cellSize, cellSize);
         }
     }
+
     updatedCells.length = 0;
     
     // Highlight should be drawn on top
     drawHighlight(context, currentState, currentCellPos);
 }
 
-function update(currentState, paused, updatedCells) {
+function update(context, currentState, paused, updatedCells, currentCellPos) {
     if (paused) return;
 
     var previousState = JSON.parse(JSON.stringify(currentState));
 
+    var changed = false;
     // Iterate through the grid, updating cells based on their neighbors in the previous state
     for (var y = 0; y < gridHeight; ++y) {
         for (var x = 0; x < gridWidth; ++x) {
@@ -155,12 +159,18 @@ function update(currentState, paused, updatedCells) {
                     // Living ells with less than 2 neighbors die by underpopulation
                     // Living cells with greater than 3 neighbors die by overpopulation
                     setCell(currentState, [x, y], 0, updatedCells);
+                    changed = true;
                 }
             } else if (neighbors == 3) {
                 // Dead cells with exactly 3 neighbors should become alive
                 setCell(currentState, [x, y], 1, updatedCells);
+                changed = true;
             }
         }
+    }
+    
+    if (changed)  {
+        draw(context, currentState, currentCellPos, updatedCells);
     }
 }
 
@@ -190,11 +200,8 @@ function start() {
     drawGridLines(context);
     
     setInterval(function () {
-        update(currentState, paused, updatedCells);
+        update(context, currentState, paused, updatedCells, currentCellPos);
     }, updateInterval);
-    setInterval(function () {
-        draw(context, currentState, currentCellPos, updatedCells);
-    }, drawInterval);
     
     // Set event listeners (JavaScript, you really need less-convoluted pass-by-reference capabilities)
 
@@ -212,7 +219,7 @@ function start() {
         currentCellPos = getCellFromMousePos(mousePos, canvas.getBoundingClientRect());
         if (oldCellPos[0] != currentCellPos[0] || oldCellPos[1] != currentCellPos[1] || (isValidCell(oldCellPos) && !isValidCell(currentCellPos))) {
             removeHighlight(context, currentState, oldCellPos);
-            drawHighlight(context, currentState, currentCellPos);
+            draw(context, currentState, currentCellPos, updatedCells);
         }
 
         if (isValidCell(currentCellPos)) {
@@ -239,7 +246,8 @@ function start() {
     });
     
     $("#clearButton").on("click", function (event) {
-        clearCells(currentState); 
+        clearCells(currentState, updatedCells); 
+        draw(context, currentState, currentCellPos, updatedCells);
     });
 }
 
