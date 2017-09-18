@@ -172,6 +172,14 @@ section {
     opacity: 1;
 }
 
+#cppBar {
+    width: 95%;
+}
+
+#cppBar:hover {
+    background: #38217A;
+}
+
 #csharpBar {
     width: 95%;
 }
