@@ -3,26 +3,51 @@ body {
 }
 
 #content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 95%;
     margin: 0 auto;
     background: #fff;
     padding-top: 3.5em;
     padding-bottom: 1em;
+    text-align: center;
     color: #000;
     overflow: hidden;
     border-bottom: 5px solid #000;
 }
 
-#game {
+h1 {
+    margin-bottom: 0em;
+}
+
+#info {
     display: inline-block;
-    margin-left: 2em;
+    margin: 1em;
+    background: #fff;
+    text-align: center;
+}
+
+#info p {
+    text-align: left;
+}
+
+#ruleList {
+	text-align: left;
+    font-size: 0.9em;
+}
+
+#game {
+    display: block;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 0em;
+    background: #fff;
 }
 
 #grid {
-    display: inline-block;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid #aaa;
     background: #000;
 }
@@ -30,10 +55,8 @@ body {
 #menu {
     display: block;
     margin: 0 auto;
-    padding: 0.1em 0 0.25em 0;
-    border: 2px solid #000;
-    border-radius: 5px;
-    background: #A0CDED;
+    padding-bottom: 0.1em;
+    background: #1D1D1D;
     overflow: hidden;
 }
 
@@ -57,19 +80,4 @@ body {
     position: relative;
     top: 3px;
     box-shadow: none;
-}
-
-#info {
-    display: inline-block;
-    max-width: 15%;
-    margin: 1em;
-}
-
-#info p {
-    text-align: left;
-}
-
-#ruleList {
-	text-align: left;
-    font-size: 0.9em;
 }

@@ -3,10 +3,16 @@
     Size settings
 */
 
-var gridWidth = 50; // Number of columns (cells)
-var gridHeight = 50; // Number of rows (cells)
-var cellSize = 10; // px
-var lineWidth = 2.0;
+// Grid
+var gridWidth; // Number of columns (cells)
+var gridHeight; // Number of rows (cells)
+var kLineWidth = 3.0;
+var kCellSize = 10.0; // px
+var cellSize = kCellSize;
+
+// Canvas
+var width;
+var height;
 
 var cellFillStyle = "#fff";
 var cellEmptyStyle = "#000";
@@ -15,15 +21,12 @@ var gridStrokeStyle = "#666";
 
 var updateInterval = 100; //ms
 
-var width = gridWidth * (cellSize + lineWidth) - lineWidth;
-var height = gridHeight * (cellSize + lineWidth) - lineWidth;
-
 function getCellFromMousePos(mousePos, rect) {
     if (mousePos[0] < rect.left || mousePos[0] > rect.right || mousePos[1] < rect.top || mousePos[1] > rect.bottom) {
         return [-1, -1];
     }
-    var posX = Math.floor((mousePos[0] - rect.left) / (cellSize + lineWidth));
-    var posY = Math.floor((mousePos[1] - rect.top) / (cellSize + lineWidth));
+    var posX = Math.floor((mousePos[0] - rect.left) / (cellSize + kLineWidth));
+    var posY = Math.floor((mousePos[1] - rect.top) / (cellSize + kLineWidth));
     return [posX, posY];
 }
 
@@ -78,14 +81,14 @@ function drawGridLines(context) {
 
     // Draw horizontal lines
     for (var y = 1; y < gridHeight; ++y) {
-        context.moveTo(0, (cellSize + lineWidth / 2) * y + (lineWidth / 2) * (y - 1));
-        context.lineTo(width, (cellSize + lineWidth / 2) * y + (lineWidth / 2) * (y - 1));
+        context.moveTo(0, (cellSize + kLineWidth / 2) * y + (kLineWidth / 2) * (y - 1));
+        context.lineTo(width, (cellSize + kLineWidth / 2) * y + (kLineWidth / 2) * (y - 1));
     }
 
     // Draw vertical lines
     for (var x = 1; x < gridWidth; ++x) {
-        context.moveTo((cellSize + lineWidth / 2) * x + (lineWidth / 2) * (x - 1), 0);
-        context.lineTo((cellSize + lineWidth / 2) * x + (lineWidth / 2) * (x - 1), height);
+        context.moveTo((cellSize + kLineWidth / 2) * x + (kLineWidth / 2) * (x - 1), 0);
+        context.lineTo((cellSize + kLineWidth / 2) * x + (kLineWidth / 2) * (x - 1), height);
     }
 
     context.stroke();
@@ -96,9 +99,9 @@ function removeHighlight(context, currentState, highlightedCellPos) {
     if (isValidCell(highlightedCellPos)) {
         var x = highlightedCellPos[0];
         var y = highlightedCellPos[1];
-        var xPos = (cellSize + lineWidth) * x;
-        var yPos = (cellSize + lineWidth) * y;
-        
+        var xPos = (cellSize + kLineWidth) * x;
+        var yPos = (cellSize + kLineWidth) * y;
+
         if (currentState[y][x] == 1) {
             context.fillStyle = cellFillStyle;
             context.fillRect(xPos, yPos, cellSize, cellSize);
@@ -109,13 +112,13 @@ function removeHighlight(context, currentState, highlightedCellPos) {
     }
 }
 
-function drawHighlight(context, currentState, currentCellPos) { 
+function drawHighlight(context, currentState, currentCellPos) {
     // Draw transparent preview of currently moused-over cell if applicable
     if (isValidCell(currentCellPos)) {
         context.globalAlpha = 0.6;
         context.fillStyle = highlightFillStyle;
-        context.fillRect((cellSize + lineWidth) * currentCellPos[0], (cellSize + lineWidth) * currentCellPos[1], cellSize, cellSize);
-        
+        context.fillRect((cellSize + kLineWidth) * currentCellPos[0], (cellSize + kLineWidth) * currentCellPos[1], cellSize, cellSize);
+
         context.globalAlpha = 1.0;
     }
 }
@@ -125,9 +128,9 @@ function draw(context, currentState, currentCellPos, updatedCells) {
     for (var i = 0; i < updatedCells.length; ++i) {
         var x = updatedCells[i][0];
         var y = updatedCells[i][1];
-        var xPos = (cellSize + lineWidth) * x;
-        var yPos = (cellSize + lineWidth) * y;
-        
+        var xPos = (cellSize + kLineWidth) * x;
+        var yPos = (cellSize + kLineWidth) * y;
+
         if (currentState[updatedCells[i][1]][x] == 1) {
             context.fillStyle = cellFillStyle;
             context.fillRect(xPos, yPos, cellSize, cellSize);
@@ -138,7 +141,7 @@ function draw(context, currentState, currentCellPos, updatedCells) {
     }
 
     updatedCells.length = 0;
-    
+
     // Highlight should be drawn on top
     drawHighlight(context, currentState, currentCellPos);
 }
@@ -152,7 +155,7 @@ function update(context, currentState, paused, updatedCells, currentCellPos) {
     // Iterate through the grid, updating cells based on their neighbors in the previous state
     for (var y = 0; y < gridHeight; ++y) {
         for (var x = 0; x < gridWidth; ++x) {
-            
+
             var neighbors = countLivingNeighbors(previousState, x, y);
             if (currentState[y][x] == 1) {
                 if (neighbors < 2 || neighbors > 3) {
@@ -168,9 +171,41 @@ function update(context, currentState, paused, updatedCells, currentCellPos) {
             }
         }
     }
-    
-    if (changed)  {
+
+    if (changed) {
         draw(context, currentState, currentCellPos, updatedCells);
+    }
+}
+
+function resizeCanvas(highlightedCell, updatedCells, currentState) {
+    var useableWidth = $("#game").width();
+    
+    gridWidth = Math.floor((useableWidth) / (cellSize + kLineWidth));
+    gridHeight = 50;
+    width = gridWidth * (cellSize + kLineWidth) - kLineWidth;
+    height = gridHeight * (cellSize + kLineWidth) - kLineWidth;
+
+    var canvas = document.getElementById("grid");
+    var context = canvas.getContext("2d");
+    
+    canvas.width = width;
+    canvas.height = height;
+    $("#menu").width(canvas.width);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawGridLines(context);
+    
+    highlightedCell = [-1, -1];
+    for (var i in updatedCells) {
+        updatedCells.pop();
+    }
+    for (var i in currentState) {
+        currentState.pop();
+    }
+    for (var y = 0; y < gridHeight; ++y) {
+        currentState[y] = new Array(gridWidth);
+        for (var x = 0; x < gridWidth; ++x) {
+            currentState[y][x] = 0;
+        }
     }
 }
 
@@ -179,30 +214,18 @@ function start() {
     var context = canvas.getContext("2d");
 
     var currentState = new Array(gridHeight);
-    for (var y = 0; y < gridHeight; ++y) {
-        currentState[y] = new Array(gridWidth);
-        for (var x = 0; x < gridWidth; ++x) {
-            currentState[y][x] = 0;
-        }
-    }
-
-    canvas.width = width;
-    canvas.height = height;
-    context.lineWidth = lineWidth;
-
     var paused = true;
     var holdingMouse = false;
     var mousePos;
     var setValue = 1;
     var updatedCells = [];
-    var highlightedCell = [-1, -1], currentCellPos = [-1, -1];
+    var highlightedCell = [-1, -1],
+        currentCellPos = [-1, -1];
 
-    drawGridLines(context);
-    
     setInterval(function () {
         update(context, currentState, paused, updatedCells, currentCellPos);
     }, updateInterval);
-    
+
     // Set event listeners (JavaScript, you really need less-convoluted pass-by-reference capabilities)
 
     $(window).on("mousedown", function (event) {
@@ -227,7 +250,7 @@ function start() {
             if (holdingMouse) {
                 setCell(currentState, currentCellPos, setValue, updatedCells);
             }
-    }
+        }
     });
 
     $(window).on("mouseup", function (event) {
@@ -244,11 +267,16 @@ function start() {
     pauseButton.on("click", function (event) {
         togglePaused(paused);
     });
-    
+
     $("#clearButton").on("click", function (event) {
-        clearCells(currentState, updatedCells); 
+        clearCells(currentState, updatedCells);
         draw(context, currentState, currentCellPos, updatedCells);
     });
+
+    window.addEventListener("resize", function (event) {
+        resizeCanvas(highlightedCell, updatedCells, currentState);
+    });
+    resizeCanvas(highlightedCell, updatedCells, currentState);
 }
 
 start();
