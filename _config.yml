@@ -6,6 +6,7 @@ description: >-
   Software application developer and hobbyist game developer.
 baseurl: "/blog"
 url: "https://alexplagman.com"
+repo: "https://github.com/APlagman/AlexPlagman.com"
 permalink: pretty
 
 twitter_username: alexplagman
