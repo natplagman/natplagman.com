@@ -1,0 +1,25 @@
+---
+---
+@import "minima";
+
+ul.pager {
+    text-align: center;
+    list-style: none;
+    
+    li {
+        display: inline;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+    }
+}
+
+h4 {
+    font-size: 1.2em;
+    color: #444
+}
+
+.post-link-header {
+    margin-bottom: 0
+}
