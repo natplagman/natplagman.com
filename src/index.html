@@ -1,7 +1,38 @@
 ---
 layout: home
+skills:
+  - name: "C++"
+    level: 80%
+    tag: "cpp"
+  - name: "C# / ASP.NET"
+    level: 80%
+    tag: "csharp"
+  - name: "Java"
+    level: 75%
+    tag: "java"
+  - name: "HTML / CSS"
+    level: 70%
+    tag: "web"
+  - name: "JavaScript / TypeScript"
+    level: 70%
+    tag: "js"
+  - name: "SQL"
+    level: 65%
+    tag: "sql"
+  - name: "Python"
+    level: 50%
+    tag: "python"
+  - name: "Ruby"
+    level: 50%
+    tag: "ruby"
 ---
-<p>
-  Welcome to my blog!
-  <br/> Here you can find a collection of musings and updates about software development.
-</p>
+
+<div class="skills">
+  <h2>Skill Set</h2>
+  {%- for skill in page.skills -%}
+  <h4 class="skillname">{{ skill.name }}</h4>
+  <div class="skillbar">
+      <div class="skillbar-filled" skilltag={{ skill.tag }} style="width: {{ skill.level }};"></div>
+  </div>
+  {%- endfor -%}
+</div>

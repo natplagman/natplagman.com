@@ -36,6 +36,27 @@ $menu-icon-fill: #ddd;
     }
 }
 
+.skills {
+    max-width: 500px;
+    padding: 0.25em 1em;
+
+    .skillname {
+        margin-bottom: 0.25em;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .skillbar {
+        background-color: #e2e2e2;
+        margin-bottom: 1em;
+    
+        > .skillbar-filled {
+            background-color: $brand-color;
+            padding: 0.4em 0.5em;
+        }
+    }
+}
+
 ul.pager {
     text-align: center;
     list-style: none;
@@ -55,12 +76,12 @@ ul.pager {
 
 .post-list {
     > li {
-        border-left: 0.4em solid #fff;
+        border-left: 0.4em solid transparent;
         padding-left: 0.4em;
         transition: border-color .3s ease-in-out;
 
         &:hover {
-            border-color: $brand-color;
+            border-color: #000;
         }
 
         a {
