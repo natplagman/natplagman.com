@@ -1,0 +1,14 @@
+---
+layout: page
+---
+{{ content }}
+
+<div class="skills">
+    <h2>Technologies</h2>
+    {%- for skill in site.skills -%}
+    <h4 class="skillname">{{ skill.name }}</h4>
+    <div class="skillbar">
+        <div class="skillbar-filled" skilltag={{ skill.tag }} style="width: {{ skill.level }};"></div>
+    </div>
+    {%- endfor -%}
+  </div>

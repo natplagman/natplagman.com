@@ -2,35 +2,86 @@
 ---
 @import "minima";
 
-$dark-bg: #222;
-$dark-bg-text-color: #bbb;
-$dark-bg-link-hover-color: #eee;
-$brand-color: rgb(61, 140, 204);
-$dark-border: #111;
+$bg: #222;
+$text-color: #ddd;
+$link-hover-color: rgb(135, 157, 216);
+$brand-color: rgb(73, 90, 187);
+$link-color: rgb(0, 132, 255);
+$border-color: #111;
 $menu-icon-fill: #ddd;
-$splash-arrow-outside-color: #fff;
+$splash-arrow-outside-color: $bg;
+$splash-title-color: #eee;
+$splash-background: $brand-color;
+$post-hover-side-color: $brand-color;
+
+body {
+    background-color: $bg;
+    color: $text-color;
+}
+
+.highlight {
+    background: none;
+}
+
+.highlighter-rouge {
+    .highlight {
+        background: none;
+    }
+}
+
+table td {
+    border-color: transparent;
+}
+
+pre, code {
+    background-color: #2b2b2b;
+    border-color: $border-color;
+    color: #fff;
+    max-width: 100%;
+    overflow-x: auto;
+    vertical-align: middle;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
+    
+    > code {
+        background-color: inherit;
+        box-shadow: none;
+    }
+}
+
+a, .post-link, .page-link {
+    color: $link-color;
+
+    &:visited {
+        color: rgb(106, 130, 240);
+    }
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
 
 .site-header {
-    background-color: $dark-bg;
-    border-bottom-color: $dark-border;
+    background-color: $bg;
+    border-bottom-color: $border-color;
 
     .page-link, .site-title {
-        color :$dark-bg-text-color;
+        color :$text-color;
         text-decoration: none;
 
         &:hover {
-            color: $dark-bg-link-hover-color;
+            color: $link-hover-color;
         }
     }
 
     .site-nav {
-        background-color: $dark-bg;
-        border-color: $dark-border;
-        color: $dark-bg-text-color;
+        background-color: $bg;
+        border-color: $border-color;
+        color: $text-color;
     }
 
     .menu-icon {
-        background-color: $dark-bg;
+        background-color: $bg;
 
         > svg {
             fill: $menu-icon-fill;
@@ -47,28 +98,29 @@ $splash-arrow-outside-color: #fff;
 #splash {
 	position: relative;
 	overflow: hidden;
-	height: 390px;
-	background: $brand-color;
+	height: 230px;
+	background: $splash-background;
 }
 
 #splash_iframe {
 	border: none;
     width: 100%;
-    height: 400px;
+    height: 250px;
     position: absolute;
 }
 
 #splash_title {
-	color: #fff;
+	color: $splash-title-color;
 	text-align: center;
-	font-size: 8em;
+    font-size: 3.5em;
+    font-family: "Dosis", sans-serif;
 	line-height: 0.85em;
     margin-top: 0.8em;
 	pointer-events: none;
 	cursor: default;
 
 	position: relative;
-	z-index: 99;
+    z-index: 99;
 }
 
 #splash_arrow {
@@ -116,17 +168,20 @@ $splash-arrow-outside-color: #fff;
 }
 
 .skills {
-    max-width: 500px;
     padding: 0.25em 1em;
+
+    > h2 {
+        text-align: center;
+    }
 
     .skillname {
         margin-bottom: 0.25em;
         font-weight: bold;
-        color: #555;
+        color: #999;
     }
 
     .skillbar {
-        background-color: #e2e2e2;
+        background-color: #444;
         margin-bottom: 1em;
     
         > .skillbar-filled {
@@ -160,7 +215,7 @@ ul.pager {
         transition: border-color .3s ease-in-out;
 
         &:hover {
-            border-color: #000;
+            border-color: $post-hover-side-color;
         }
 
         a {
@@ -172,4 +227,8 @@ ul.pager {
             color: $brand-color;
         }
     }
+}
+
+.site-footer {
+    border-top-color: $border-color;
 }
