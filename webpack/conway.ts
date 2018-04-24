@@ -1,7 +1,7 @@
 import { getNeighbors, Grid } from './cells';
 
 export const NUMS = [0, 1];
-export const OPACITIES = [0.0, 0.3];
+export const OPACITIES = [0.0, 0.1];
 
 export function updateGrid (grid: Grid, x: number, y: number) {
   const cell = grid.cells[y][x];
