@@ -2,6 +2,40 @@
 ---
 @import "minima";
 
+$dark-bg: #222;
+$dark-bg-text-color: #bbb;
+$dark-bg-link-hover-color: #eee;
+$brand-color: rgb(61, 140, 204);
+$nav-border: #111;
+$menu-icon-fill: #ddd;
+
+.site-header {
+    background-color: $dark-bg;
+
+    .page-link, .site-title {
+        color :$dark-bg-text-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $dark-bg-link-hover-color;
+        }
+    }
+
+    .site-nav {
+        background-color: $dark-bg;
+        border-color: $nav-border;
+        color: $dark-bg-text-color;
+    }
+
+    .menu-icon {
+        background-color: $dark-bg;
+
+        > svg {
+            fill: $menu-icon-fill;
+        }
+    }
+}
+
 ul.pager {
     text-align: center;
     list-style: none;
@@ -15,11 +49,27 @@ ul.pager {
     }
 }
 
-h4 {
-    font-size: 1.2em;
-    color: #444
-}
-
 .post-link-header {
     margin-bottom: 0
+}
+
+.post-list {
+    > li {
+        border-left: 0.4em solid #fff;
+        padding-left: 0.4em;
+        transition: border-color .3s ease-in-out;
+
+        &:hover {
+            border-color: $brand-color;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .post-link-header {
+            color: $brand-color;
+        }
+    }
 }

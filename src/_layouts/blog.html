@@ -2,10 +2,7 @@
 layout: default
 ---
 
-<div class="home">
-    {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%}
+<div class="blog">
 
     {%- if paginator.page == 1 -%}
     {{ content }}
@@ -16,19 +13,19 @@ layout: default
     <ul class="post-list">
         {%- for post in paginator.posts -%}
         <li>
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
-            <h3 class="post-link-header">
-                <a class="post-link" href="{{ post.url | relative_url }}">
+            <a href="{{ post.url | relative_url }}">
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                <span class="post-meta">{{ post.date | date: date_format }}</span>
+                <h3 class="post-link-header">
                     {{ post.title | escape }}
-                </a>
-            </h3>
-            {%- if post.subtitle -%}
-            <h4>{{post.subtitle | escape }}</h4>
-            {%- endif -%}
-            {%- if site.show_excerpts -%} 
-            {{ post.content | strip_html | escape | truncatewords: 50 }}
-            {%- endif -%}
+                </h3>
+                {%- if post.subtitle -%}
+                <h4>{{post.subtitle | escape }}</h4>
+                {%- endif -%}
+                {%- if site.show_excerpts -%} 
+                {{ post.content | strip_html | escape | truncatewords: 50 }}
+                {%- endif -%}
+            </a>
         </li>
         {%- endfor -%}
     </ul>
