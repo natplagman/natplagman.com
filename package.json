@@ -10,7 +10,7 @@
     "watch-jekyll": "bundle exec jekyll build --watch",
     "watch": "concurrently --kill-others \"npm run watch-webpack\" \"npm run watch-jekyll\"",
     "serve-jekyll": "bundle exec jekyll serve",
-    "serve": "concurrently --kill-others \"npm run watch-webpack\" \"npm run serve-jekyll\""
+    "dev": "concurrently --kill-others \"npm run watch-webpack\" \"npm run serve-jekyll\""
   },
   "repository": {
     "type": "git",
