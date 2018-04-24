@@ -6,11 +6,13 @@ $dark-bg: #222;
 $dark-bg-text-color: #bbb;
 $dark-bg-link-hover-color: #eee;
 $brand-color: rgb(61, 140, 204);
-$nav-border: #111;
+$dark-border: #111;
 $menu-icon-fill: #ddd;
+$splash-arrow-outside-color: #fff;
 
 .site-header {
     background-color: $dark-bg;
+    border-bottom-color: $dark-border;
 
     .page-link, .site-title {
         color :$dark-bg-text-color;
@@ -23,7 +25,7 @@ $menu-icon-fill: #ddd;
 
     .site-nav {
         background-color: $dark-bg;
-        border-color: $nav-border;
+        border-color: $dark-border;
         color: $dark-bg-text-color;
     }
 
@@ -32,6 +34,83 @@ $menu-icon-fill: #ddd;
 
         > svg {
             fill: $menu-icon-fill;
+        }
+    }
+}
+
+.noscript {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#splash {
+	position: relative;
+	overflow: hidden;
+	height: 390px;
+	background: $brand-color;
+}
+
+#splash_iframe {
+	border: none;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+}
+
+#splash_title {
+	color: #fff;
+	text-align: center;
+	font-size: 8em;
+	line-height: 0.85em;
+    margin-top: 0.8em;
+	pointer-events: none;
+	cursor: default;
+
+	position: relative;
+	z-index: 99;
+}
+
+#splash_arrow {
+	position: absolute;
+	bottom:0;
+	width:100%;
+	height: 50px;
+    pointer-events: none;
+
+    > div{
+        position: absolute;
+
+        &:nth-child(-n+2) {
+            width: 50%;
+            height: 100%;
+            background: $splash-arrow-outside-color;
+        }
+
+        &:nth-child(n+3) {
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        &:nth-child(1) {
+            left: -50px;
+        }
+        
+        &:nth-child(2) {
+            right: -50px;
+        }
+
+        &:nth-child(3) {
+            border-width: 50px 0 0 50px;
+            border-color: transparent transparent transparent $splash-arrow-outside-color;
+            left: calc(50% - 50px);
+        }
+
+        &:nth-child(4) {
+            border-width: 0 0 50px 50px;
+            border-color: transparent transparent $splash-arrow-outside-color transparent;
+            right: calc(50% - 50px);
         }
     }
 }
