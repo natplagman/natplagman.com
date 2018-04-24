@@ -1,18 +1,19 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I'm Alex Plagman, nearly graduated with a Bachelor's in Computer Science at Eastern Washington University.
+I'm a firm supporter of open-source code and love to poke around and try new things!
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I've been programming (either teaching myself, attending school, or doing side projects) for almost 10 years after discovering [Scratch][Scratch] as a child.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+I work with a variety of languages and technologies with a focus on software and desktop application development.
 
+Currently, I'm proudly helping [Chief Architect][CA] develop architectural home design software.
 
-[jekyll-organization]: https://github.com/jekyll
+Outside of work, I can probably be found creating mediocre pixel art, messing around with various game frameworks, and frowning every time I see the word "blockchain".
+
+[CA]: https://www.chiefarchitect.com/
+[Scratch]: https://scratch.mit.edu/
