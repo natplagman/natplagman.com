@@ -26,7 +26,9 @@ layout: default
             {%- if post.subtitle -%}
             <h4>{{post.subtitle | escape }}</h4>
             {%- endif -%}
-            {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
+            {%- if site.show_excerpts -%} 
+            {{ post.content | strip_html | escape | truncatewords: 50 }}
+            {%- endif -%}
         </li>
         {%- endfor -%}
     </ul>

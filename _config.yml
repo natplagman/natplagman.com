@@ -4,7 +4,7 @@ author: Alex Plagman
 email: alexplagman@gmail.com
 description: >-
   Software application developer and hobbyist game developer.
-baseurl: "/blog"
+baseurl: ""
 url: "https://alexplagman.com"
 repo: "https://github.com/APlagman/AlexPlagman.com"
 permalink: pretty
@@ -12,10 +12,15 @@ permalink: pretty
 twitter_username: alexplagman
 github_username:  APlagman
 linkedin_username: alexplagman
-show_excerpts: false
-header_pages:
-  - about.md
-  - portfolio.md
+show_excerpts: true
+
+menu:
+  - title: "About"
+    url: /about
+  - title: "Portfolio"
+    url: /portfolio
+  - title: "Blog"
+    url: /blog
 
 # Build settings
 markdown: kramdown
@@ -23,6 +28,15 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
+  - jekyll-assets
+
+destination: dist
+source: src
+strict_front_matter: true
+incremental: false
+
+sass:
+    style: compressed
 
 # Pagination Settings
 pagination:
@@ -33,15 +47,3 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
