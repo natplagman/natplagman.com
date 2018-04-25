@@ -17,6 +17,7 @@
         {%- for item in site.menu -%}
           <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
         {%- endfor -%}
+        <a class="page-link" onclick="let footer = document.body.getElementsByClassName('site-footer')[0]; footer.scrollIntoView({ behavior: 'smooth' });">Contact</a>
       </div>
     </nav>
   </div>
