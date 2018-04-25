@@ -1,0 +1,26 @@
+---
+layout: home
+---
+
+<p id="home-description">I'm a software engineer in the Pacific Northwest. Check out some of my past work below.</p>
+
+{%- for project in site.portfolio -%}
+  <div class="project-card">
+    <div class="project-screenshot" style="background: url('{{ project.image | escape }}') no-repeat scroll 0% 0% / cover;"></div>
+    <div class="project-content">
+      <h2>{{ project.title }}</h2>
+      <p>{{ project.description }}</p>
+      <div class="project-tags">
+        {%- for tag in project.tags -%}
+        <span class="project-tag">{{ tag }}</span>
+        {%- endfor -%}
+      </div>
+      <div class="project-links">
+        <a class="project-link" href="{{ project.source_url | escape }}">View Code</a>
+        {%- if project.demo_url -%}
+        <a class="project-link" href="{{ project.demo_url | escape }}">View Demo</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
