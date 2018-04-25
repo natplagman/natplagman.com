@@ -3,7 +3,7 @@ title: Alex Plagman
 author: Alex Plagman
 email: alexplagman@gmail.com
 description: >-
-  Software application developer and hobbyist game developer.
+  Software engineer and hobbyist game developer.
 baseurl: ""
 url: "https://alexplagman.com"
 repo: "https://github.com/APlagman/AlexPlagman.com"
@@ -17,8 +17,6 @@ show_excerpts: true
 menu:
   - title: "About"
     url: /about
-  - title: "Portfolio"
-    url: /portfolio
   - title: "Blog"
     url: /blog
 
@@ -60,6 +58,10 @@ destination: dist
 source: src
 strict_front_matter: true
 incremental: false
+collections_dir: collections
+collections:
+  - posts
+  - portfolio
 
 sass:
     style: compressed
