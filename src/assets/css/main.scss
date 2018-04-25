@@ -195,6 +195,7 @@ main {
 
 #home-description {
     font-size: 1.5em;
+    margin-top: -2em;
 }
 
 .project-card {
@@ -209,8 +210,6 @@ main {
     overflow: hidden;
 
     .project-screenshot {
-        top: 0;
-        left: 0;
         width: 50%;
     }
 
