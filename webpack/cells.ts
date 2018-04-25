@@ -36,25 +36,41 @@ export function getNeighbors(grid: Grid, ox: number, oy: number) {
   return neighbors;
 };
 
-window.onload = function () {
-  const setupCanvas = function () {
-    const canvas = document.createElement("canvas");
-    const pageWidth = document.body.clientWidth;
-    const pageHeight = document.body.clientHeight;
-    canvas.width = pageWidth * 2;
-    canvas.height = pageHeight * 2;
-    canvas.style.width = pageWidth + "px";
-    canvas.style.height = pageHeight + "px";
-    document.body.appendChild(canvas);
-    return canvas;
-  }
-  const canvas = setupCanvas();
+let grid: Grid;
+const tileSize = 20;
+let canvas: HTMLCanvasElement;
+let ctx: CanvasRenderingContext2D | null;
 
-  // Grid constants
-  const tileSize = 20;
+function setupCanvas() {
+  canvas = document.createElement("canvas");
+  const pageWidth = document.body.clientWidth;
+  const pageHeight = document.body.clientHeight;
+  canvas.width = pageWidth * 2;
+  canvas.height = pageHeight * 2;
+  canvas.style.width = pageWidth + "px";
+  canvas.style.height = pageHeight + "px";
+  document.body.appendChild(canvas);
+  ctx = canvas.getContext("2d");
+}
+
+function setupGrid() {
   const gridWidth = Math.ceil(document.body.clientWidth * 2 / tileSize);
   const gridHeight = Math.ceil(document.body.clientHeight * 2 / tileSize);
-  const grid = new Grid(gridWidth, gridHeight, NUMS);
+  grid = new Grid(gridWidth, gridHeight, NUMS);
+}
+
+window.onresize = function () {
+  if (canvas) {
+    console.log("Thanks for making me resize the canvas again.");
+    document.body.removeChild(canvas);
+    setupCanvas();
+    setupGrid();
+  }
+}
+
+window.onload = function () {
+  setupCanvas();
+  setupGrid();
 
   // Update
   let tickTimer = 0;
@@ -81,7 +97,7 @@ window.onload = function () {
   setInterval(update, 1000 / 60);
   update();
 
-  const ctx = canvas.getContext("2d");
+  ctx = canvas.getContext("2d");
   function draw() {
     window.requestAnimationFrame(draw);
 
@@ -89,7 +105,7 @@ window.onload = function () {
       // Clear the canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#fff";
-  
+
       // Draw the grid
       for (let y = 0; y < grid.height; y++) {
         for (let x = 0; x < grid.width; x++) {
