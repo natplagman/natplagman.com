@@ -2,17 +2,20 @@
 ---
 @import "minima";
 
-$bg: #222;
-$text-color: #ddd;
-$link-hover-color: rgb(135, 157, 216);
-$brand-color: rgb(73, 90, 187);
-$link-color: rgb(0, 132, 255);
-$border-color: #111;
-$menu-icon-fill: #ddd;
+$bg: #f0f0f0;
+$text-color: #222;
+$link-hover-color: rgb(53, 64, 94);
+$brand-color: #392da3;
+$link-color: rgb(0, 69, 133);
+$border-color: #222;
+$menu-icon-fill: #222;
 $splash-arrow-outside-color: $bg;
 $splash-title-color: #eee;
 $splash-background: $brand-color;
 $post-hover-side-color: $brand-color;
+$footer-text: #444;
+$card-color: rgb(188, 203, 231);
+$card-tag-border: #333;
 
 body {
     background-color: $bg;
@@ -20,12 +23,12 @@ body {
 }
 
 .highlight {
-    background: none;
+    background: #2b2b2b;
 }
 
 .highlighter-rouge {
     .highlight {
-        background: none;
+        background: #2b2b2b;
     }
 }
 
@@ -53,7 +56,7 @@ a, .post-link, .page-link {
     color: $link-color;
 
     &:visited {
-        color: rgb(106, 130, 240);
+        color: rgb(71, 92, 185);
     }
 
     &:hover {
@@ -77,7 +80,7 @@ a, .post-link, .page-link {
         text-decoration: none;
 
         &:hover {
-            color: $link-hover-color;
+            color: rgb(35, 0, 131);
             cursor: pointer;
         }
     }
@@ -139,7 +142,16 @@ main {
 	color: $splash-title-color;
 	text-align: center;
     font-size: 3.5em;
-    font-family: "Dosis", sans-serif;
+    @media (max-width: 640px) {
+        font-size: 3em;
+        line-height: 1.2em;
+    }
+    @media (max-width: 420px) {
+        margin-top: 1.2em;
+        font-size: 2.2em;
+        line-height: 1.5em;
+    }
+    font-family: "Orbitron", sans-serif;
 	line-height: 0.85em;
     margin-top: 0.8em;
 	pointer-events: none;
@@ -196,27 +208,43 @@ main {
 #home-description {
     font-size: 1.5em;
     margin-top: -2em;
+    margin-bottom: 2em;
 }
+
+main {
+    > .wrapper {
+        max-width: calc(1000px - (20px * 2));
+    }
+}
+
+
 
 .project-card {
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: flex-end;
-    margin-bottom: 1em;
-    background-color: #362d86;
+    margin-bottom: 2em;
+    color: #111;
+    background-color: #222;
     border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,.1), 15px 15px rgb(7, 24, 71);
     overflow: hidden;
+    transition: all 0.3s ease;
 
     .project-screenshot {
-        width: 50%;
+        width: 60%;
     }
 
     .project-content {
+        background-color: $card-color;
         padding: 2em;
         width: 40%;
         transition: all .5s ease;
+
+        .project-title {
+            font-family: Orbitron, sans-serif;
+        }
 
         .project-tags {
             display: flex;
@@ -224,7 +252,7 @@ main {
             
             .project-tag {
                 border-radius: 4px;
-                border: 2px solid #777;
+                border: 2px solid $card-tag-border;
                 padding: 8px;
                 margin-right: 10px;
                 margin-bottom: 10px;
@@ -250,15 +278,16 @@ main {
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: all .15s ease;
-                font-family: Dosis, sans-serif;
+                font-family: Orbitron, sans-serif;
                 font-size: .9em;
                 font-weight: 600;
-                color: $text-color;
-                border: 2px solid #eee;
+                color: $brand-color;
+                border: 2px solid $brand-color;
+                background: $card-color;
 
                 &:hover {
-                    color: #3a365c;
-                    background: #eee;
+                    color: $card-color;
+                    background: $brand-color;
                 }
             }
         }
@@ -275,11 +304,11 @@ main {
     .skillname {
         margin-bottom: 0.25em;
         font-weight: bold;
-        color: #999;
+        color: #333;
     }
 
     .skillbar {
-        background-color: #444;
+        background-color: #bbb;
         margin-bottom: 1em;
     
         > .skillbar-filled {
@@ -325,6 +354,10 @@ ul.pager {
             color: $brand-color;
         }
     }
+}
+
+.footer-col-wrapper {
+    color: $footer-text;
 }
 
 .site-footer {
