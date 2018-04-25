@@ -12,9 +12,6 @@ export function updateGrid (grid: Grid, x: number, y: number) {
     if (neighbors[i].state == 1)
       livingNeighbors++;
   }
-  // < 2 neighbors -> die
-  // > 3 neighbors -> die
-  // 3 neighbors -> live
   if (cell.state == 1) {
     if (livingNeighbors < 2)
       cell.nextState = 0;
