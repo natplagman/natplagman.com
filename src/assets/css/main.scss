@@ -243,7 +243,7 @@ main {
         transition: all .5s ease;
 
         .project-title {
-            font-family: Orbitron, sans-serif;
+            font-family: inherit;
         }
 
         .project-tags {
@@ -278,7 +278,7 @@ main {
                 text-transform: uppercase;
                 text-decoration: none;
                 transition: all .15s ease;
-                font-family: Orbitron, sans-serif;
+                font-family: Dosis, sans-serif;
                 font-size: .9em;
                 font-weight: 600;
                 color: $brand-color;
