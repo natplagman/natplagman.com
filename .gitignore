@@ -7,3 +7,4 @@ dist/
 src/assets/js/
 src/assets/img/
 tmp/
+.log
