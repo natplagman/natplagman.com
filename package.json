@@ -5,7 +5,7 @@
   "main": "entry.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack --progress -p && bundle exec jekyll build JEKYLL_ENV=production",
+    "build": "./node_modules/.bin/webpack --progress -p && bundle exec jekyll build JEKYLL_ENV=production && rsync -av ./dist/ /var/www/html/",
     "watch-webpack": "./node_modules/.bin/webpack --progress --watch",
     "watch-jekyll": "bundle exec jekyll build --watch",
     "watch": "concurrently --kill-others \"npm run watch-webpack\" \"npm run watch-jekyll\"",
