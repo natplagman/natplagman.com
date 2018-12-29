@@ -4,7 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-I'm Alex Plagman, nearly graduated with a Bachelor's in Computer Science at Eastern Washington University.
+I'm Alex Plagman! I graduated from Eastern Washington University in 2018 with a Bachelor's of Science in Computer Science.
+
 I'm a firm supporter of open-source code and love to poke around and try new things!
 
 I've been programming (either teaching myself, attending school, or doing side projects) for almost 10 years after discovering [Scratch][Scratch] as a child.

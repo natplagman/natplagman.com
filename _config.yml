@@ -36,15 +36,27 @@ skills:
   - name: "JavaScript / TypeScript"
     level: 70%
     tag: "js"
+  - name: "Ruby"
+    level: 70%
+    tag: "ruby"
   - name: "SQL"
     level: 65%
     tag: "sql"
   - name: "Python"
     level: 50%
     tag: "python"
-  - name: "Ruby"
-    level: 50%
-    tag: "ruby"
+
+tools:
+  - name: "Visual Studio Code"
+  - name: "Visual Studio"
+  - name: "Vim"
+  - name: "Linux"
+  - name: "Tiled"
+  - name: "Unity"
+  - name: "Excel"
+  - name: "Perforce"
+  - name: "Git"
+  - name: "Helix ALM"
 
 # Build settings
 markdown: kramdown
