@@ -1,0 +1,6 @@
+language: ruby
+dist: precise
+before-install:
+    - npm install
+after-install:
+    - npm run build
