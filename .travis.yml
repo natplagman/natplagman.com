@@ -14,10 +14,7 @@ deploy:
     skip_cleanup: true
     on:
         branch: master
-    script:
-        - tar -czf package.tgz dist
-        - sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-        - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh 
+    script: bash begin_deploy.sh
 env:
   global:
   - secure: 2O52ftoQsR6wXLSw9VSPtGEcZSZVdmMgYdatGbDofmMyms9WWHNmMMhsOUVdWMj8hpvhd7vm8/aPgE1Wwn8+pkiUimyxsrNEPbavKXXxuYc4LZ5mRC+LyLJZ2oicmMBhxPAyBOt+gTJfK6z5m2R72Qr4V1xEzALpWHq3EGEMVl19UJt/Cjk2a/kVAPAqU1AoNwj9wzpAPqDEXNj1G4i0K6CediTGngcIsu40aRig1EVkPLv3v81So0/uOyq4FUPRchpz0BwEMOJClfKydLz+4X4fx5mdBOPyYWXoSzcNoRaxVVRg5fu0TKLmHENTUylvFjaVCRmqwvuKKGDWabeELpktnBRRXkjX7Ba+STfnV3SayKro+vNN3hs4q1wVaQrxlV0FdM1qfSbCIk+U43SJ75khectQ2+RrmSwDs1gF7xDJAVOqh4zMuOzF7yhXd5otTt/iiiNH2lAahTQsegkhfcPjjJoBaRUixzyEBSVKrGBiqyAob1c3uLe3dPkVOnoIduDBbduz5TID014d1v1uofhVebLW36AvSfgNrPmhXJ/CZp0DHGii2g87r5TnCfA2GffefgPdajJ4o6Yg4MqUYu7uNi2U9gZrPDdR8XR9K0nK0H0L/ghyWc5f/9AUUW1aBMpxwASIgJm7kx3sVi+yxOuEKWFrsTN81ALSflqghUk=
