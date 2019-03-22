@@ -1,10 +1,10 @@
 language: ruby
 dist: xenial
-before-install:
-- npm install
-- gem install bundler
-after-install:
-- npm run build
+install:
+    - npm install
+    - bundle install
+script:
+    - npm run build
 addons:
     apt:
         packages:
