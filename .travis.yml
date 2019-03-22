@@ -1,6 +1,7 @@
 language: ruby
-dist: precise
+dist: xenial
 before-install:
     - npm install
+    - gem install bundler
 after-install:
     - npm run build
