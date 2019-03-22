@@ -1,8 +1,10 @@
 # Requirements
-node
-ruby + rubygems
+
+* node
+* ruby + rubygems
 
 # Installation and Build Instructions
+
 ```bash
 npm install
 gem install bundler
