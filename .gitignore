@@ -5,6 +5,5 @@ _site
 node_modules/
 dist/
 src/assets/js/
-src/assets/img/
 tmp/
 .log
