@@ -1,0 +1,12 @@
+{{ define "main" }} 
+  <main class="page-content">
+    <div class="wrapper grid-owner">
+      {{ $conway := resources.Get "js/conway.js" }}
+      {{ $grid := resources.Get "js/grid.js" }}
+      {{ $cells := resources.Get "js/cells.js" }}
+      <script src="{{ $conway.Permalink }}" type="module"></script>
+      <script src="{{ $grid.Permalink }}" type="module"></script>
+      <script src="{{ $cells.Permalink }}" type="module"></script>
+    </div>
+  </main>
+{{ end }}

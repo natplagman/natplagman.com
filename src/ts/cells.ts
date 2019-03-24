@@ -2,26 +2,29 @@ import { updateGrid, NUMS, OPACITIES } from './conway.js';
 import { Grid } from './grid.js';
 
 let grid: Grid;
-const tileSize = 20;
+const tileSize = 10;
 let canvas: HTMLCanvasElement;
 let ctx: CanvasRenderingContext2D | null;
 
 function setupCanvas() {
   canvas = document.createElement("canvas");
-  const pageWidth = document.body.clientWidth;
-  const pageHeight = document.body.clientHeight;
-  canvas.width = pageWidth * 2;
-  canvas.height = pageHeight * 2;
-  canvas.style.width = pageWidth + "px";
-  canvas.style.height = pageHeight + "px";
-  document.body.appendChild(canvas);
+  const parent = document.getElementsByClassName("grid-owner").item(0);
+  if (parent) {
+    canvas.width = parent.clientWidth;
+    canvas.height = parent.clientWidth;
+    canvas.style.width = parent.clientWidth + "px";
+    canvas.style.height = parent.clientWidth + "px";
+    parent.appendChild(canvas);
+  }
   ctx = canvas.getContext("2d");
 }
 
 function setupGrid() {
-  const gridWidth = Math.ceil(document.body.clientWidth * 2 / tileSize);
-  const gridHeight = Math.ceil(document.body.clientHeight * 2 / tileSize);
-  grid = new Grid(gridWidth, gridHeight, NUMS);
+  if (parent) {
+    const gridWidth = Math.ceil(canvas.clientWidth / tileSize);
+    const gridHeight = Math.ceil(canvas.clientHeight / tileSize);
+    grid = new Grid(gridWidth, gridHeight, NUMS);
+  }
 }
 
 window.onresize = function () {
