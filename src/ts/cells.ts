@@ -30,7 +30,10 @@ function setupGrid() {
 window.onresize = function () {
   if (canvas) {
     console.log("Thanks for making me resize the canvas again.");
-    document.body.removeChild(canvas);
+    const parent = document.getElementsByClassName("grid-owner").item(0);
+    if (parent) {
+      parent.removeChild(canvas);
+    }
     setupCanvas();
     setupGrid();
   }
