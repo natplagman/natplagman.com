@@ -23,3 +23,8 @@ deploy:
   name: "Alex Plagman"
   on:
     branch: master
+
+notifications:
+  email:
+    on-success: always
+    on_failure: change
