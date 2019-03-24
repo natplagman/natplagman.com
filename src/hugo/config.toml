@@ -1,0 +1,73 @@
+baseURL = "http://localhost:1313"
+title = "Alex Plagman"
+theme = ""
+author = "Alex Plagman"
+
+archetypeDir = "archetypes"
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
+themesDir = "themes"
+
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+footnoteReturnLinkContents = "↩"
+
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsStyle = "monokai"
+
+enableEmoji = true
+
+summaryLength = 30
+
+paginate = 10
+paginatePath = "page"
+canonifyUrls = true
+
+[languages]
+  [languages.en]
+    languagename = "English"
+    title = "Alex Plagman"
+
+    [languages.en.params]
+      info = "Software engineer and hobbyist game developer."
+      description = "Alex Plagman's personal website"
+      keywords = "blog,developer,personal"
+      Author = "Alex Plagman"
+      Email = "alexplagman@gmail.com"
+      Repo = "https://github.com/APlagman/AlexPlagman.com"
+      favicon_16 = "/favicon.ico"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "About"
+        weight = 1
+        url = "/about/"
+      [[languages.en.menu.main]]
+        name = "Blog"
+        weight = 2
+        url = "/blog/"
+
+[[params.social]]
+  name = "Github"
+  icon = "img/icons.svg"
+  iconAfter = "#github"
+  weight = 1
+  url = "https://github.com/aplagman/"
+  user = "aplagman"
+[[params.social]]
+  name = "Twitter"
+  icon = "img/icons.svg"
+  iconAfter = "#twitter"
+  weight = 3
+  url = "https://twitter.com/alexplagman/"
+  user = "alexplagman"
+[[params.social]]
+  name = "Linkedin"
+  icon = "img/icons.svg"
+  iconAfter = "#linkedin"
+  weight = 4
+  url = "https://www.linkedin.com/in/alexplagman/"
+  user = "alexplagman"

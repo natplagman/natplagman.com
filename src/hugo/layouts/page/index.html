@@ -1,0 +1,38 @@
+{{ define "main" }}
+  <noscript>
+    <span class="noscript">
+      Hi! My site requires JavaScript for some fancy shmancy animations.
+      Notably, when you click on links that scroll in the current page.
+      Please enable it to get the full experience.
+      Thanks!
+    </span>
+  </noscript>
+  <main class="page-content">
+    <div class="wrapper">
+      {{ .Content }}
+      <div class="projects">
+        {{ range .Params.Project }}
+          <div class="project-card">
+            {{ $image := resources.Get .Image }}
+            <div class="project-screenshot" style="background: #111 url('{{ $image.Permalink }}') no-repeat scroll 0% 0% / cover;"></div>
+            <div class="project-content">
+              <h2 class="project-title">{{ .Title }}</h2>
+              <p>{{ .Description }}</p>
+              <div class="project-tags">
+                {{ range .Tags }}
+                  <span class="project-tag">{{ . }}</span>
+                {{ end }}
+              </div>
+              <div class="project-links">
+                <a class="project-link" href="{{ safeHTML .SourceURL }}">View Code</a>
+                {{ if .DemoURL }}
+                  <a class="project-link" href="{{ safeHTML .DemoURL }}">View Demo</a>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </main>
+{{ end }}

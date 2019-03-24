@@ -1,0 +1,4 @@
+[submodule "src/hugo/public"]
+	path = src/hugo/public
+	url = git@github.com:APlagman/alexplagman.github.io.git
+	branch = master

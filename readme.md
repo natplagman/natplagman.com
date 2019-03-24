@@ -3,14 +3,12 @@
 # Requirements
 
 * node
-* ruby + rubygems
+* hugo
 
 # Installation and Build Instructions
 
 ```bash
 npm install
-gem install bundler
-bundle install
-npm run dev
+sh src/dev.sh
 ```
-Open localhost:4000 in a browser.
+Open localhost:1313 in a browser.

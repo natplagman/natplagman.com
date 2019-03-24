@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      {{ .Content }}
+
+      <div class="skills">
+        <h2>Languages</h2>
+        {{ range .Params.Language }}
+          <h4 class="skillname">{{ .Name }}</h4>
+          <div class="skillbar">
+              <div class="skillbar-filled" skilltag={{ .Tag }} style="width: {{ .Level }}0%;"></div>
+          </div>
+        {{ end }}
+        <h2>Tools</h2>
+        {{ range .Params.Tool }}
+            <h4 class="skillname">{{ .Name }}</h4>
+            <div class="skillbar">
+              <div class="skillbar-filled" style="width: {{ .Level }}0%;"></div>
+            </div>
+        {{ end }}
+    </div>
+  </main>
+{{ end }}

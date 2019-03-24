@@ -1,0 +1,56 @@
+{{ define "title" }}
+  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "main" }}
+  <main class="page-content">
+    <div class="wrapper">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">{{ safeHTML .Title }}</h1>
+          {{ if .Params.Subtitle }}
+            <h2 class="post-subtitle">{{ safeHTML .Params.Subtitle }}</h2>
+          {{ end }}
+          <p class="post-meta">
+            <time class="dt-published" datetime="{{ .PublishDate.Format "January 2, 2006"  }}" itemprop="datePublished">
+              {{ .Date.Format "January 2, 2006"  }}
+            </time>
+            {{ if .Page.Params.Author }}
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ .Page.Params.Author }}</span></span>
+            {{ end }}
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          {{ .Content }}
+        </div>
+
+        <div>
+          {{ with .Params.Topics }}
+            <ul id="topics">
+              {{ range . }}
+                <li><a href="{{ "topics" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+          {{ with .Params.Tags }}
+            <ul id="tags">
+              {{ range . }}
+                <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+              {{ end }}
+            </ul>
+        {{ end }}
+        </div>
+        <div>
+          {{ with .PrevInSection }}
+            <span>Previous:&nbsp;</span><a class="previous" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+          {{ with .NextInSection }}
+            <span>Next:&nbsp;</span><a class="next" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </div>
+
+        <a class="u-url" href="{{ relURL .URL }}" hidden></a>
+      </article>
+    </div>
+  </main>
+{{ end }}

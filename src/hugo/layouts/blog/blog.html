@@ -1,0 +1,54 @@
+{{ define "title" }}
+  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "main" }}
+  <main class="page-content">
+    <div class="wrapper">
+      <div class="blog">
+        {{ .Content }}
+        
+        {{ $paginator := .Paginate .Pages }}
+        {{ if gt $paginator.TotalPages 0 }}
+          <h2 class="post-list-heading">Posts</h2>
+          <ul class="post-list">
+            {{ range $paginator.Pages }}
+              <li>
+                <a href="{{ .URL }}">
+                  <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
+                  <h3 class="post-link-header">
+                    {{ .Title }}
+                  </h3>
+                  {{ if .Params.Subtitle }}
+                    <h4>{{ safeHTML .Params.Subtitle }}</h4>
+                  {{ end }}
+                  {{ safeHTML .Summary }} ...
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+    
+          {{ if gt $paginator.TotalPages 1 }}
+            <ul class="pager">
+              {{ if $paginator.HasPrev }}
+                <li class="previous">
+                  <a href="{{ $paginator.Prev.URL }}">&larr; Newer Posts</a>
+                </li>
+              {{ end }}
+              {{ if $paginator.HasNext }}
+                <li class="next">
+                  <a href="{{ $paginator.Next.URL }}">Older Posts &rarr;</a>
+                </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+    
+          {{ with .OutputFormats.Get "rss" -}}
+            <p class="rss-subscribe">subscribe
+              {{ printf `<a href="%s">via RSS</a>` .Permalink | safeHTML }}
+            </p>
+          {{ end -}}
+        {{ end }}
+      </div>
+    </div>
+  </main>
+{{end }}

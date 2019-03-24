@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./hugo/assets/js",
+        "strictNullChecks": true,
+        "module": "es2015",
+        "target": "es6",
+        "allowJs": true,
+        "noImplicitAny": true,
+        "inlineSourceMap": true
+    },
+    "include": [
+        "./ts"
+    ]
+}

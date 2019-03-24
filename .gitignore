@@ -1,9 +1,5 @@
-_site
 .sass-cache
-.jekyll-metadata
-.jekyll-cache
-node_modules/
-dist/
-src/assets/js/
-tmp/
+src/hugo/public
+src/hugo/resources/_gen
 .log
+dist

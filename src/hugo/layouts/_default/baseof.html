@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ block "title" . }}
+        {{ .Site.Title }}
+      {{ end }}</title>
+    <meta name="description" content="
+      {{ if .IsHome }}{{ .Site.Params.Description }}
+      {{ else }}{{ .Description }}
+      {{ end }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css">
+    
+    {{ range .AlternativeOutputFormats -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+    {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
+    {{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+    {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+  </head>
+      
+  <body>
+    <header class="site-header" role="banner">
+      <div class="wrapper">
+        <a class="site-title" rel="author" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    
+        <nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewBox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+              </svg>
+            </span>
+          </label>
+    
+          <div class="trigger">
+            {{ range .Site.Menus.main }}
+              <a class="page-link" href="{{ .URL }}">
+                  {{ .Pre }}
+                  <span>{{ .Name }}</span>
+              </a>
+            {{ end }}
+            <a class="page-link" onclick="let footer = document.body.getElementsByClassName('site-footer')[0]; footer.scrollIntoView({ behavior: 'smooth' });">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    {{ block "main" . }}
+    {{ end }}
+
+    {{ block "footer" . }}
+      <footer class="site-footer">
+        <div class="wrapper">
+          <h2 class="footer-heading">Contact Me</h2>
+          <div class="footer-content">
+            <div class="footer-col">
+              <ul class="contact-list">
+                <li>
+                  {{ .Site.Params.Author }}
+                </li>
+                <li>
+                  <address><a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></address>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="footer-col shrink">
+              <ul class="social-list">
+                {{ range .Site.Params.Social }}
+                  <li>
+                    <a href="{{ .url }}">
+                      <svg class="svg-icon">
+                        <use href="{{ (resources.Get .icon).Permalink }}{{ .iconAfter }}"></use>
+                      </svg>
+                      <span class="username">{{ .user }}</span>
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
+      
+            <div class="footer-col">
+              <p>{{ .Site.Params.Info }}</p>
+              <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ htmlEscape .Site.Params.Repo }}">here</a>.</p>
+            </div>
+          </div>
+          <div class="flex-center flex-col">
+            <a class="page-link copyright" onclick="let header = document.body.getElementsByClassName('site-header')[0]; header.scrollIntoView({ behavior: 'smooth' });">Back to top</a>
+            <span>© {{ now.Year }} under the&nbsp;<a href="https://opensource.org/licenses/MIT">MIT license.</a></span>
+          </div>
+        </div>
+      </footer>
+      {{ $script := resources.Get "/js/entry.js" }}
+      <script src="{{ $script.Permalink }}"></script>
+    {{ end }}
+  </body>
+</html>
