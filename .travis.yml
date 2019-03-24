@@ -4,8 +4,8 @@ go:
   - master
 
 install:
-  - npm install typescript
-  - go get github.com/spf13/hugo 
+  - npm install -g typescript
+  - go get github.com/gohugoio/hugo
 
 script:
   - cd src
