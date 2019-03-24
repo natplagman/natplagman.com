@@ -10,10 +10,12 @@ function setupCanvas() {
   canvas = document.createElement("canvas");
   const parent = document.getElementsByClassName("grid-owner").item(0);
   if (parent) {
-    canvas.width = parent.clientWidth;
-    canvas.height = parent.clientWidth;
-    canvas.style.width = parent.clientWidth + "px";
-    canvas.style.height = parent.clientWidth + "px";
+    const width = parent.clientWidth;
+    const height = Math.min(document.body.clientHeight - 60, width);
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
     parent.appendChild(canvas);
   }
   ctx = canvas.getContext("2d");
