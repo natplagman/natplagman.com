@@ -60,37 +60,39 @@
     {{ block "footer" . }}
       <footer class="site-footer">
         <div class="wrapper">
-          <h2 class="footer-heading">Contact Me</h2>
           <div class="footer-content">
-            <div class="footer-col">
-              <ul class="contact-list">
-                <li>
-                  {{ .Site.Params.Author }}
-                </li>
-                <li>
-                  <address><a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></address>
-                </li>
-              </ul>
-            </div>
-      
-            <div class="footer-col shrink">
-              <ul class="social-list">
-                {{ range .Site.Params.Social }}
+            <h2 class="footer-heading">Contact <wbr>Me</h2>
+            <div class="footer-main">
+              <div class="footer-col">
+                <ul>
                   <li>
-                    <a href="{{ .url }}">
-                      <svg class="svg-icon">
-                        <use href="{{ (resources.Get .icon).Permalink }}{{ .iconAfter }}"></use>
-                      </svg>
-                      <span class="username">{{ .user }}</span>
-                    </a>
+                    {{ .Site.Params.Author }}
                   </li>
-                {{ end }}
-              </ul>
-            </div>
-      
-            <div class="footer-col">
-              <p>{{ .Site.Params.Info }}</p>
-              <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ htmlEscape .Site.Params.Repo }}">here</a>.</p>
+                  <li>
+                    <address><a href="mailto:{{ .Site.Params.Email }}">{{ .Site.Params.Email }}</a></address>
+                  </li>
+                </ul>
+              </div>
+        
+              <div class="footer-col">
+                <ul>
+                  {{ range .Site.Params.Social }}
+                    <li>
+                      <a href="{{ .url }}">
+                        <svg class="svg-icon">
+                          <use href="{{ (resources.Get .icon).Permalink }}{{ .iconAfter }}"></use>
+                        </svg>
+                        <span class="username">{{ .user }}</span>
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </div>
+        
+              <div class="footer-col info-col">
+                <p>{{ .Site.Params.Info }}</p>
+                <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ htmlEscape .Site.Params.Repo }}">here</a>.</p>
+              </div>
             </div>
           </div>
           <div class="flex-center flex-col">
