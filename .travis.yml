@@ -3,9 +3,14 @@ language: go
 go:
   - master
 
+dist: xenial
+
+addons:
+  snaps:
+  - hugo
+
 install:
   - npm install -g typescript
-  - go get github.com/gohugoio/hugo
 
 script:
   - cd src
