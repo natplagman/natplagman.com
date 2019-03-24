@@ -7,7 +7,7 @@ install:
   - go get github.com/spf13/hugo 
 
 script:
-  - hugo -s ./src/hugo -d public
+  - sh travis_build.sh
 
 deploy:
   local_dir: public

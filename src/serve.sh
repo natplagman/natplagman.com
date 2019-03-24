@@ -1,5 +1,3 @@
 #!/bin/bash
-# -D  Include drafts
-# -w  watch
 rm -rf ../dist
-hugo server -wD -s ./hugo -d ../dist
+hugo server -w -s ./hugo -d ../dist --config ./hugo/local.toml

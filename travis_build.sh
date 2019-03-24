@@ -1,2 +1,2 @@
 #!/bin/bash
-hugo -DEF -s src/hugo -d dist
+hugo -s hugo -d src/hugo/public --config src/hugo/config.toml -t ""

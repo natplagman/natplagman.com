@@ -1,7 +1,8 @@
-baseURL = "https://aplagman.github.io"
+baseURL = "http://localhost:1313"
 title = "Alex Plagman"
 theme = ""
 author = "Alex Plagman"
+drafts = true
 
 archetypeDir = "archetypes"
 contentDir = "content"
