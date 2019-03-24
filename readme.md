@@ -2,13 +2,13 @@
 
 # Requirements
 
-* node
-* hugo
+* Typescript
+* Hugo
 
 # Installation and Build Instructions
 
 ```bash
-npm install
-sh src/dev.sh
+cd src
+sh serve.sh
 ```
 Open localhost:1313 in a browser.

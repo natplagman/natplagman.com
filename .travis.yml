@@ -4,13 +4,16 @@ go:
   - master
 
 install:
+  - npm install typescript
   - go get github.com/spf13/hugo 
 
 script:
-  - sh travis_build.sh
+  - cd src
+  - tsc 
+  - hugo -s hugo -d public --config config.toml -t ""
 
 deploy:
-  local_dir: public
+  local_dir: src/hugo/public
   repo: aplagman/aplagman.github.io 
   target_branch: master
   provider: pages

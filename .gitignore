@@ -1,5 +1,3 @@
-.sass-cache
-src/hugo/public
-src/hugo/resources/_gen
+**/resources/_gen
 .log
-dist
+**/dist
