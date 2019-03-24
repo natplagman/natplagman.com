@@ -1,4 +1,0 @@
-[submodule "src/hugo/public"]
-	path = src/hugo/public
-	url = https://github.com/APlagman/aplagman.github.io.git
-	branch = master
