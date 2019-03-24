@@ -7,7 +7,7 @@ dist: xenial
 
 addons:
   snaps:
-  - hugo_extended
+  - hugo --channel=extended
 
 install:
   - npm install -g typescript
