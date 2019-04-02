@@ -58,13 +58,6 @@ canonifyUrls = true
   url = "https://github.com/aplagman/"
   user = "aplagman"
 [[params.social]]
-  name = "Twitter"
-  icon = "img/icons.svg"
-  iconAfter = "#twitter"
-  weight = 3
-  url = "https://twitter.com/alexplagman/"
-  user = "alexplagman"
-[[params.social]]
   name = "Linkedin"
   icon = "img/icons.svg"
   iconAfter = "#linkedin"
