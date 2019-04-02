@@ -37,7 +37,7 @@ canonifyUrls = true
       description = "Alex Plagman's personal website"
       keywords = "blog,developer,personal"
       Author = "Alex Plagman"
-      Email = "alexplagman@gmail.com"
+      Email = "alexplagman at gmail dot com"
       Repo = "https://github.com/APlagman/AlexPlagman.com"
       favicon_16 = "/favicon.ico"
 
@@ -58,13 +58,6 @@ canonifyUrls = true
   weight = 1
   url = "https://github.com/aplagman/"
   user = "aplagman"
-[[params.social]]
-  name = "Twitter"
-  icon = "img/icons.svg"
-  iconAfter = "#twitter"
-  weight = 3
-  url = "https://twitter.com/alexplagman/"
-  user = "alexplagman"
 [[params.social]]
   name = "Linkedin"
   icon = "img/icons.svg"
