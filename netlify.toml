@@ -1,4 +1,4 @@
 [build]
   base = "src/"
-  command = "npm install -g typescript && tsc && cd hugo && hugo -d public --config netlify.toml -t ''"
+  command = "npm install -g typescript && tsc && cd hugo && hugo -d public --config config.toml -t ''"
   publish = "src/hugo/public/"
