@@ -1,0 +1,4 @@
+[build]
+  base = "src/"
+  command = "npm install -g typescript && tsc && hugo --config hugo/config.toml -t ''"
+  publish = "src/hugo/public/"
