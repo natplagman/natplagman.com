@@ -79,7 +79,7 @@ url = "/about/"
 
 # About Me
 
-I'm Alex Plagman! I graduated from Eastern Washington University in 2018 with a Bachelor's of Science in Computer Science.
+I'm Natalie Plagman! I graduated from Eastern Washington University in 2018 with a Bachelor's of Science in Computer Science.
 
 I'm a firm supporter of open-source code and love to poke around and try new things!
 

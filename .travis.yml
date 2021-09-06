@@ -19,13 +19,13 @@ script:
 
 deploy:
   local_dir: src/hugo/public
-  repo: aplagman/aplagman.github.io 
+  repo: natplagman/natplagman.github.io 
   target_branch: master
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  email: alexplagman@gmail.com
-  name: "Alex Plagman"
+  email: natplagman@gmail.com
+  name: "Natalie Plagman"
   on:
     branch: master
 

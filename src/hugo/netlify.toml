@@ -1,7 +1,7 @@
-baseURL = "https://alexplagman.com"
-title = "Alex Plagman"
+baseURL = "https://natplagman.com"
+title = "Natalie Plagman"
 theme = ""
-author = "Alex Plagman"
+author = "Natalie Plagman"
 
 archetypeDir = "archetypes"
 contentDir = "content"
@@ -29,15 +29,15 @@ canonifyUrls = true
 [languages]
   [languages.en]
     languagename = "English"
-    title = "Alex Plagman"
+    title = "Natalie Plagman"
 
     [languages.en.params]
       info = "Software engineer and hobbyist game developer."
-      description = "Alex Plagman's personal website"
+      description = "Natalie Plagman's personal website"
       keywords = "blog,developer,personal"
-      Author = "Alex Plagman"
-      Email = "alexplagman at gmail dot com"
-      Repo = "https://github.com/APlagman/AlexPlagman.com"
+      Author = "Natalie Plagman"
+      Email = "natplagman at gmail dot com"
+      Repo = "https://github.com/natplagman/natplagman.com"
       favicon_16 = "/favicon.ico"
 
     [languages.en.menu]
@@ -55,12 +55,12 @@ canonifyUrls = true
   icon = "img/icons.svg"
   iconAfter = "#github"
   weight = 1
-  url = "https://github.com/aplagman/"
-  user = "aplagman"
+  url = "https://github.com/natplagman/"
+  user = "natplagman"
 [[params.social]]
   name = "Linkedin"
   icon = "img/icons.svg"
   iconAfter = "#linkedin"
   weight = 4
-  url = "https://www.linkedin.com/in/alexplagman/"
-user = "alexplagman"
+  url = "https://www.linkedin.com/in/natplagman/"
+user = "natplagman"
