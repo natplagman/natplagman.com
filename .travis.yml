@@ -1,7 +1,7 @@
 language: go
 
 go:
-  - master
+  - main
 
 dist: xenial
 
@@ -20,14 +20,14 @@ script:
 deploy:
   local_dir: src/hugo/public
   repo: natplagman/natplagman.github.io 
-  target_branch: master
+  target_branch: main
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   email: natplagman@gmail.com
   name: "Natalie Plagman"
   on:
-    branch: master
+    branch: main
 
 notifications:
   email:
