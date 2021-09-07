@@ -1,7 +1,7 @@
 language: go
 
 go:
-  - main
+  - master
 
 dist: xenial
 
