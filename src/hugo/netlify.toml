@@ -1,6 +1,6 @@
 baseURL = "https://natplagman.com"
 title = "Natalie Plagman"
-theme = ""
+#theme = ""
 author = "Natalie Plagman"
 
 archetypeDir = "archetypes"
@@ -63,4 +63,4 @@ canonifyUrls = true
   iconAfter = "#linkedin"
   weight = 4
   url = "https://www.linkedin.com/in/natplagman/"
-user = "natplagman"
+  user = "natplagman"

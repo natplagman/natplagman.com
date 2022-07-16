@@ -1,0 +1,78 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "tsc: watch",
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"option": "watch",
+			"problemMatcher": "$tsc-watch",
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceRoot}/src"
+			}
+		},
+		{
+			"label": "hugo server: local",
+			"type": "shell",
+			"command": "hugo",
+			"args": [
+				"--watch",
+				"--source",
+				"hugo",
+				"--destination",
+				"dist",
+				"--config",
+				"local.toml"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"options": {
+				"cwd": "${workspaceRoot}/src"
+			}
+		},
+		{
+			"label": "hugo server: local (drafts)",
+			"type": "shell",
+			"command": "hugo",
+			"args": [
+				"server",
+				"--watch",
+				"--source",
+				"hugo",
+				"--destination",
+				"dist",
+				"--config",
+				"local.toml",
+				"--buildDrafts"
+			],
+			"group": {
+				"kind": "build"
+			},
+			"options": {
+				"cwd": "${workspaceRoot}/src"
+			}
+		},
+		{
+			"label": "hugo build",
+			"type": "shell",
+			"command": "hugo",
+			"args": [
+				"--source",
+				"hugo",
+				"--destination",
+				"public",
+				"--config",
+				"local.toml"
+			],
+			"group": {
+				"kind": "build"
+			},
+			"options": {
+				"cwd": "${workspaceRoot}/src"
+			}
+		}
+	]
+}
