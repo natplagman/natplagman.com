@@ -13,28 +13,7 @@
 			}
 		},
 		{
-			"label": "hugo server: local",
-			"type": "shell",
-			"command": "hugo",
-			"args": [
-				"--watch",
-				"--source",
-				"hugo",
-				"--destination",
-				"dist",
-				"--config",
-				"local.toml"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"options": {
-				"cwd": "${workspaceRoot}/src"
-			}
-		},
-		{
-			"label": "hugo server: local (drafts)",
+			"label": "hugo server",
 			"type": "shell",
 			"command": "hugo",
 			"args": [
@@ -45,30 +24,11 @@
 				"--destination",
 				"dist",
 				"--config",
-				"local.toml",
-				"--buildDrafts"
+				"config.toml,shared.toml"
 			],
 			"group": {
-				"kind": "build"
-			},
-			"options": {
-				"cwd": "${workspaceRoot}/src"
-			}
-		},
-		{
-			"label": "hugo build",
-			"type": "shell",
-			"command": "hugo",
-			"args": [
-				"--source",
-				"hugo",
-				"--destination",
-				"public",
-				"--config",
-				"local.toml"
-			],
-			"group": {
-				"kind": "build"
+				"kind": "build",
+				"isDefault": true
 			},
 			"options": {
 				"cwd": "${workspaceRoot}/src"

@@ -1,0 +1,22 @@
+[languages.en]
+    languagename = "English"
+    title = "Natalie Plagman"
+
+    [languages.en.params]
+        info = "Software engineer and hobbyist game developer."
+        description = "Natalie Plagman's personal website"
+        keywords = "blog,developer,personal"
+        Author = "Natalie Plagman"
+        Email = "me at natplagman dot com"
+        Repo = "https://github.com/natplagman/natplagman.com"
+        favicon_16 = "/favicon.ico"
+
+    [languages.en.menu]
+        [[languages.en.menu.main]]
+        name = "About"
+        weight = 1
+        url = "/about/"
+        [[languages.en.menu.main]]
+        name = "Blog"
+        weight = 2
+        url = "/blog/"

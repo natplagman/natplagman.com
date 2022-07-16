@@ -1,0 +1,26 @@
+title = "Natalie Plagman"
+#theme = ""
+author = "Natalie Plagman"
+
+archetypeDir = "archetypes"
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
+themesDir = "themes"
+
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+footnoteReturnLinkContents = "↩"
+
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsStyle = "monokai"
+
+enableEmoji = true
+
+summaryLength = 30
+
+paginate = 10
+paginatePath = "page"
+canonifyUrls = true
