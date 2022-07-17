@@ -48,6 +48,7 @@ pre, code {
   border-radius: 5px;
   
   > code {
+    padding: 2px 0px;
     background-color: inherit;
     box-shadow: none;
   }
@@ -337,6 +338,11 @@ ul.pager {
 .post-meta {
   font-size: 14px;
   color: #383838;
+}
+
+.post-content li {
+  list-style-type: inherit;
+  margin-left: 1em;
 }
 
 .post-list {
