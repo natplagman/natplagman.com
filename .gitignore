@@ -1,3 +1,4 @@
-**/resources
+resources
 .log
-**/dist
+dist
+.hugo_build.lock
