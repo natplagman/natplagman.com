@@ -1,5 +1,4 @@
 ---
-layout: "life"
 title: "Life"
 date: 2019-03-24T12:09:57-07:00
 ---
