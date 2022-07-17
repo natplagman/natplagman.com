@@ -18,7 +18,10 @@
                   {{ if .Params.Subtitle }}
                     <h4>{{ .Params.Subtitle }}</h4>
                   {{ end }}
-                  {{ .Summary }} ...
+                  {{ .Summary }}
+                  {{ if .Truncated }}
+                    <span>...</span>
+                  {{ end}}
                 </a>
               </li>
             {{ end }}
