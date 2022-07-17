@@ -10,14 +10,15 @@
           {{ if .Params.Subtitle }}
             <h2 class="post-subtitle">{{ safeHTML .Params.Subtitle }}</h2>
           {{ end }}
-          <p class="post-meta">
-            <time class="dt-published" datetime="{{ .PublishDate.Format "January 2, 2006"  }}" itemprop="datePublished">
-              {{ .Date.Format "January 2, 2006"  }}
-            </time>
-            {{ if .Page.Params.Author }}
-              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ .Page.Params.Author }}</span></span>
+          <div class="post-meta">
+            <time class="dt-published" datetime="{{ .PublishDate | time }}" itemprop="datePublished">{{ .PublishDate.Format "January 2, 2006"  }}</time>
+            {{ if .Lastmod }}
+              <span> • </span>
+              <time class="dt-updated" datetime="{{ .Lastmod | time }}" itemprop="dateUpdated">Updated {{ .Lastmod.Format "January 2, 2006"  }}</time>
             {{ end }}
-          </p>
+            
+            <p>A {{ div .WordCount $.Site.Params.wordsPerMinute | math.Ceil }} minute read.</p>
+          </div>
         </header>
 
         <div class="post-content e-content" itemprop="articleBody">
