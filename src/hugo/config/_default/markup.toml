@@ -1,3 +1,6 @@
 [highlight]
   codeFences = true
   style = "monokai"
+[goldmark]
+  [goldmark.parser.attribute]
+    block = true

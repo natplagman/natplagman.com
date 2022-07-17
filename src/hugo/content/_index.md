@@ -24,4 +24,6 @@
   Image = "img/eagle.png"
   SourceURL = "https://github.com/natplagman/EagleOverlord"
 +++
-<p id="home-description">I'm a software engineer in the Pacific Northwest.<br/>Check out some of my past work below.</p>
+I'm a software engineer in the Pacific Northwest.\
+Check out some of my past work below.
+{id="home-description"}
