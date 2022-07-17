@@ -19,9 +19,9 @@
                     {{ .Title }}
                   </h3>
                   {{ if .Params.Subtitle }}
-                    <h4>{{ safeHTML .Params.Subtitle }}</h4>
+                    <h4>{{ .Params.Subtitle }}</h4>
                   {{ end }}
-                  {{ safeHTML .Summary }} ...
+                  {{ .Summary }} ...
                 </a>
               </li>
             {{ end }}
@@ -44,7 +44,7 @@
     
           {{ with .OutputFormats.Get "rss" -}}
             <p class="rss-subscribe">subscribe
-              {{ printf `<a href="%s">via RSS</a>` .Permalink | safeHTML }}
+              <a href="{{ .Permalink }}">via RSS</a>
             </p>
           {{ end -}}
         {{ end }}

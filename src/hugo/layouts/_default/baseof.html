@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     {{ range .AlternativeOutputFormats -}}
-      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+      <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
     {{ end -}}
 
     {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
@@ -88,7 +88,7 @@
         
               <div class="footer-col info-col">
                 <p>{{ .Site.Params.Info }}</p>
-                <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ htmlEscape .Site.Params.Repo }}">here</a>.</p>
+                <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ .Site.Params.Repo }}">here</a>.</p>
               </div>
             </div>
           </div>

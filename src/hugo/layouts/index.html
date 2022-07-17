@@ -17,9 +17,9 @@
                 {{ end }}
               </div>
               <div class="project-links">
-                <a class="project-link" href="{{ safeHTML .SourceURL }}">View Code</a>
+                <a class="project-link" href="{{ .SourceURL }}">View Code</a>
                 {{ if .DemoURL }}
-                  <a class="project-link" href="{{ safeHTML .DemoURL }}">View Demo</a>
+                  <a class="project-link" href="{{ .DemoURL }}">View Demo</a>
                 {{ end }}
               </div>
             </div>

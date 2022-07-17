@@ -6,9 +6,9 @@
     <div class="wrapper">
       <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-          <h1 class="post-title p-name" itemprop="name headline">{{ safeHTML .Title }}</h1>
+          <h1 class="post-title p-name" itemprop="name headline">{{ .Title }}</h1>
           {{ if .Params.Subtitle }}
-            <h2 class="post-subtitle">{{ safeHTML .Params.Subtitle }}</h2>
+            <h2 class="post-subtitle">{{ .Params.Subtitle }}</h2>
           {{ end }}
           <div class="post-meta">
             <time class="dt-published" datetime="{{ .PublishDate | time }}" itemprop="datePublished">{{ .PublishDate.Format "January 2, 2006"  }}</time>
