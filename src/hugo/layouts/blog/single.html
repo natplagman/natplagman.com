@@ -24,32 +24,36 @@
           {{ .Content }}
         </div>
 
-        <div>
-          {{ with .Params.Topics }}
-            <ul id="topics">
-              {{ range . }}
-                <li><a href="{{ "topics" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-              {{ end }}
-            </ul>
-          {{ end }}
-          {{ with .Params.Tags }}
-            <ul id="tags">
-              {{ range . }}
-                <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-              {{ end }}
-            </ul>
+        {{ if or (.Params.Topics) (.Params.Tags) }}
+          <div>
+            {{ with .Params.Topics }}
+              <ul id="topics">
+                {{ range . }}
+                  <li><a href="{{ "topics" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+            {{ with .Params.Tags }}
+              <ul id="tags">
+                {{ range . }}
+                  <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </div>
         {{ end }}
-        </div>
-        <div>
-          {{ with .PrevInSection }}
-            <span>Previous:&nbsp;</span><a class="previous" href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ end }}
-          {{ with .NextInSection }}
-            <span>Next:&nbsp;</span><a class="next" href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ end }}
-        </div>
+        {{ if or (.PrevInSection) (.NextInSection) }}
+          <div>
+            {{ with .PrevInSection }}
+              <span>Previous:&nbsp;</span><a class="previous" href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+            {{ with .NextInSection }}
+              <span>Next:&nbsp;</span><a class="next" href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+          </div>
+        {{ end}}
 
-        <a class="u-url" href="{{ relURL .URL }}" hidden></a>
+        <a class="u-url" href="{{ relURL .RelPermalink }}" hidden></a>
       </article>
     </div>
   </main>
