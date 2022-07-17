@@ -1,9 +1,10 @@
 +++
 title = "A Newfound Love for Jekyll"
 subtitle = "Making the Front-End Bearable"
-date = 2018-04-23T13:49:00-08:00
+publishdate = 2018-04-23T13:49:00-07:00
 aliases = [
-  "/blog/2018/4/23/on-jekyll/"
+    "/blog/2018/4/23/on-jekyll/",
+    "/blog/posts/on-jekyll/"
 ]
 +++
 When I first made my website back in 2016, I decided to build everything from the ground up.
