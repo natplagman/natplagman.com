@@ -1,7 +1,5 @@
 +++
-layout = "about"
 title = "About Me"
-url = "/about/"
 
 [[Language]]
   Name = "C / C++"
