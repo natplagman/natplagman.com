@@ -2,11 +2,17 @@
 title = "A Newfound Love for Jekyll"
 subtitle = "Making the Front-End Bearable"
 publishdate = 2018-04-23T13:49:00-07:00
+lastmod = 2022-07-17T01:17:00-07:00
 aliases = [
     "/blog/2018/4/23/on-jekyll/",
     "/blog/posts/on-jekyll/"
 ]
+summary = "In which I realize the utility of static site generators."
 +++
+{{% update %}}
+I've been using Hugo instead of Jekyll for several years.
+I find that it's more flexible.
+{{% /update %}}
 When I first made my website back in 2016, I decided to build everything from the ground up.
 
 I wanted to fully understand what steps needed to be taken in order to build a responsive website.
