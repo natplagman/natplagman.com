@@ -12,7 +12,7 @@
           {{ end }}
           <div class="post-meta">
             <time class="dt-published" datetime="{{ .PublishDate | time }}" itemprop="datePublished">{{ .PublishDate.Format "January 2, 2006"  }}</time>
-            {{ if .Lastmod }}
+            {{ if and .Lastmod (gt .Lastmod .PublishDate) }}
               <span> • </span>
               <time class="dt-updated" datetime="{{ .Lastmod | time }}" itemprop="dateUpdated">Updated {{ .Lastmod.Format "January 2, 2006"  }}</time>
             {{ end }}
