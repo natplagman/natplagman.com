@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-content">
+      <h2 class="footer-heading">Contact <wbr>Me</h2>
+      <div class="footer-main">
+        <div class="footer-col">
+          <ul>
+            <li>
+              {{ .Site.Params.Author }}
+            </li>
+            <li>
+              <address><a>{{ .Site.Params.Email }}</a></address>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer-col">
+          <ul>
+            {{ range .Site.Params.Social }}
+              <li>
+                <a href="{{ .url }}">
+                  <svg class="svg-icon">
+                    <use href="{{ (resources.Get .icon).Permalink }}{{ .iconAfter }}"></use>
+                  </svg>
+                  <span class="username">{{ .user }}</span>
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+  
+        <div class="footer-col info-col">
+          <p>{{ .Site.Params.Info }}</p>
+          <p>Built with&nbsp;<a href="https://gohugo.io/">Hugo</a>. Find the site source code&nbsp;<a href="{{ .Site.Params.Repo }}">here</a>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-center flex-col">
+      <a class="page-link copyright" onclick="let header = document.body.getElementsByClassName('site-header')[0]; header.scrollIntoView({ behavior: 'smooth' });">Back to top</a>
+      <span>© {{ now.Year }} under the&nbsp;<a href="https://opensource.org/licenses/MIT">MIT license.</a></span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+
+{{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
+{{ end }}
+
+{{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
+{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
