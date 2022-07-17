@@ -1,11 +1,11 @@
-[[params.social]]
+[[social]]
     name = "Github"
     icon = "img/icons.svg"
     iconAfter = "#github"
     weight = 1
     url = "https://github.com/natplagman/"
     user = "natplagman"
-[[params.social]]
+[[social]]
     name = "Linkedin"
     icon = "img/icons.svg"
     iconAfter = "#linkedin"
