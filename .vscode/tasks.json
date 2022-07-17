@@ -22,7 +22,7 @@
 				"--source",
 				"hugo",
 				"--destination",
-				"dist",
+				"${workspaceRoot}/dist",
 				"--config",
 				"config.toml,shared.toml"
 			],
