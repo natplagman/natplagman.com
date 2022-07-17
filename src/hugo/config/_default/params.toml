@@ -1,4 +1,5 @@
 wordsPerMinute = 220.0
+Repo = "https://github.com/natplagman/natplagman.com"
 
 [[social]]
     name = "Github"
