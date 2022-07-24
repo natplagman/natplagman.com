@@ -1,4 +1,5 @@
 {{ $codeblock := highlight .Inner .Type .Options }}
+{{ $codeblock = replace $codeblock "tabindex=\"0\"" "" }}
 {{ if ne .Attributes.copy false }}
   {{ $openingTagPattern := ".*?highlight.*?>" }}
   {{ $matches := findRE $openingTagPattern $codeblock }}
