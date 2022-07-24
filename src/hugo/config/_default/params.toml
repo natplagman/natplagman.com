@@ -4,14 +4,14 @@ Repo = "https://github.com/natplagman/natplagman.com"
 [[social]]
     name = "Github"
     icon = "img/icons.svg"
-    iconAfter = "#github"
+    id = "github"
     weight = 1
     url = "https://github.com/natplagman/"
     user = "natplagman"
 [[social]]
     name = "Linkedin"
     icon = "img/icons.svg"
-    iconAfter = "#linkedin"
+    id = "linkedin"
     weight = 4
     url = "https://www.linkedin.com/in/natplagman/"
     user = "natplagman"

@@ -18,12 +18,10 @@
           <ul>
             {{ range .Site.Params.Social }}
               <li>
-                <a href="{{ .url }}">
-                  <svg class="svg-icon">
-                    <use href="{{ (resources.Get .icon).Permalink }}{{ .iconAfter }}"></use>
-                  </svg>
-                  <span class="username">{{ .user }}</span>
-                </a>
+                <svg class="svg-icon">
+                  <use href="{{ (resources.Get .icon).Permalink }}#{{ .id }}"></use>
+                </svg>
+                <a href="{{ .url }}">{{ .name }}</a>
               </li>
             {{ end }}
           </ul>
