@@ -554,3 +554,13 @@ ul.pager {
 canvas {
   background-color: #000000;
 }
+
+.skip-to-main {
+  position: absolute;
+  left: -10000px;
+  top: 15px;
+
+  &:focus {
+    left: inherit;
+  }
+}
