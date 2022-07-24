@@ -2,3 +2,4 @@ resources
 .log
 dist
 .hugo_build.lock
+src/hugo/assets/js
