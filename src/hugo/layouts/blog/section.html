@@ -12,9 +12,7 @@
               <li>
                 <a href="{{ .Permalink }}">
                   <span class="post-meta">{{ .Date.Format "January 2, 2006" }}</span>
-                  <h3 class="post-link-header">
-                    {{ .Title }}
-                  </h3>
+                  <h3><span class="post-link-header">{{ .Title }}</span></h3>
                   {{ if .Params.Subtitle }}
                     <h4>{{ .Params.Subtitle }}</h4>
                   {{ end }}
