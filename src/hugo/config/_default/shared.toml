@@ -12,5 +12,3 @@ summaryLength = 30
 paginate = 10
 paginatePath = "page"
 canonifyUrls = true
-
-favicon_16 = "/favicon.ico"

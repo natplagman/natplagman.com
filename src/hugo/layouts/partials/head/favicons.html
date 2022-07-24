@@ -1,0 +1,6 @@
+{{ range .Site.Params.favicons }}
+  <link rel="icon" type="image/png" sizes="{{ . }}x{{ . }}" href={{ printf "favicon-%dx%d.png" . . | relURL }}>
+{{ end }}
+{{ range .Site.Params.apple_favicons }}
+  <link rel="apple-touch-icon" type="image/png" sizes="{{ . }}x{{ . }}" href={{ printf "favicon-%dx%d.png" . . | relURL }}>
+{{ end }}

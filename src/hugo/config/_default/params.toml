@@ -1,5 +1,7 @@
 wordsPerMinute = 220.0
 Repo = "https://github.com/natplagman/natplagman.com"
+favicons = [16, 32, 128]
+apple_favicons = [152, 167, 180, 192]
 
 [[social]]
     name = "Github"
