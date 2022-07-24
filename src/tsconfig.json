@@ -2,10 +2,11 @@
     "compilerOptions": {
         "outDir": "./hugo/assets/js",
         "strictNullChecks": true,
-        "module": "ES2022",
-        "target": "ES2022",
+        "module": "ES6",
+        "target": "ES6",
         "strict": true,
-        "inlineSourceMap": true
+        "inlineSourceMap": true,
+        "lib": ["dom", "ES6"]
     },
     "include": [
         "./ts"
