@@ -1,0 +1,12 @@
+{{ $codeblock := highlight .Inner .Type .Options }}
+{{ if ne .Attributes.copy false }}
+  {{ $openingTagPattern := ".*?highlight.*?>" }}
+  {{ $matches := findRE $openingTagPattern $codeblock }}
+  {{ $openingTagLength := index ($matches) 0 | len }}
+  {{ $openingTag := substr $codeblock 0 $openingTagLength }}
+  {{ $remainder := substr $codeblock $openingTagLength }}
+
+  {{ $openingTag | safeHTML }}<button class="copy-button" title="Copy to clipboard" aria-label="Copy to clipboard">Copy</button>{{ $remainder | safeHTML }}
+{{ else }}
+  {{ $codeblock | safeHTML }}
+{{ end }}
