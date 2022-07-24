@@ -163,32 +163,33 @@ li {
       color: $dark-text-color;
     }
 
-    .nav-trigger {
+    .nav-checkbox {
+      margin: 0px;
+      padding-top: 35px;
+      padding-left: 38px;
+      position: absolute;
+      cursor: pointer;
+      appearance: none;
       display: none;
     }
 
     .page-link {
       display: inline-block;
       line-height: 54px;
-    }
-
-    .page-link:not(:last-child) {
-      margin-right: 20px;
+      padding: 0px 10px;
     }
   }
 
-  .menu-icon {
+  .nav-icon {
     display: none;
     background-color: $light-background-color;
     @media (prefers-color-scheme: dark) {
       background-color: $dark-background-color;
     }
 
-    > svg {
-      fill: $light-text-color;
-      @media (prefers-color-scheme: dark) {
-        fill: $dark-text-color;
-      }
+    fill: $light-text-color;
+    @media (prefers-color-scheme: dark) {
+      fill: $dark-text-color;
     }
   }
 }
@@ -201,27 +202,25 @@ li {
       right: 15px;
       border: 1px solid;
       border-radius: 5px;
-      border-style: groove;
-      
-      label[for="nav-trigger"] {
-        display: inherit;
-        z-index: 2;
-        cursor: pointer;
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+
+      .nav-checkbox {
+        display: inline;
       }
 
-      .menu-icon {
-        float: right;
-        display: block;
+      .nav-icon {
+        display: inline;
         padding: 10px 10px;
         line-height: 0;
       }
 
-      input ~ .trigger {
+      .nav-popout {
         display: none;
-        clear: both;
       }
 
-      :checked ~ .trigger {
+      .nav-checkbox:checked ~ .nav-popout {
         display: block;
         padding-bottom: 5px;
       }
