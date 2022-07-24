@@ -1,4 +1,6 @@
 [build]
-    base = "src/"
-    command = "npm install -g typescript && tsc && cd hugo && hugo --destination public --environment netlify --config config.toml,shared.toml"
-    publish = "hugo/public/"
+  base = "src/"
+  command = "npm install -g typescript && tsc && cd hugo && hugo --destination public --environment netlify --config config.toml,shared.toml"
+  publish = "hugo/public/"
+[context.production.environment]
+  HUGO_VERSION = "0.101.0"
