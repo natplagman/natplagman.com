@@ -1,74 +1,27 @@
-$bg: #f0f0f0;
-$text-color: #222;
-$link-color: rgb(0, 69, 133);
-$link-hover-color: rgb(53, 64, 94);
-$link-visited-color: rgb(71, 92, 185);
-$brand-color: #5e1f6b;
-$border-color: #222;
-$footer-border-color: rgb(34, 34, 34);
-$menu-icon-fill: #222;
-$post-hover-side-color: $brand-color;
-$post-meta-color: #383838;
-$footer-text: #444;
-$card-color: rgb(231, 188, 228);
-$card-tag-border: #333;
-$update-bg: #ffcfaf;
-$update-text-color: $text-color;
-$svg-icon-fill-color: #828282;
-$project-card-text-color: #222;
-$project-card-bg: #222;
-$project-card-shadow-color: rgb(112, 59, 110);
-$project-card-link-color: $brand-color;
-$skillname-color: #333;
-$skillbar-bg: #bbb;
-$font-weight: 400;
-
-$dark-bg: #1e1e1e;
-$dark-text-color: rgb(228, 228, 228);
-$dark-link-color: rgb(99, 163, 223);
-$dark-link-hover-color: rgb(209, 125, 164);
-$dark-link-visited-color: rgb(196, 124, 211);
-$dark-brand-color: #ec9ad5;
-$dark-border-color: rgb(233, 233, 233);
-$dark-footer-border-color: rgb(209, 209, 209);
-$dark-menu-icon-fill: rgb(226, 226, 226);
-$dark-post-hover-side-color: $dark-brand-color;
-$dark-post-meta-color: #cecece;
-$dark-footer-text: rgb(194, 194, 194);
-$dark-card-color: rgb(224, 162, 220);
-$dark-card-tag-border: rgb(192, 143, 199);
-$dark-update-bg: $dark-brand-color;
-$dark-update-text-color: #222;
-$dark-svg-icon-fill-color: #d4d4d4;
-$dark-project-card-text-color: $text-color;
-$dark-project-card-bg: rgb(133, 52, 126);
-$dark-project-card-shadow-color: rgb(66, 12, 63);
-$dark-project-card-link-color: $dark-project-card-text-color;
-$dark-skillname-color: rgb(230, 230, 230);
-$dark-skillbar-bg: #333;
-$dark-font-weight: 350;
+@import "syntax";
+@import "variables";
 
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, .highlight {
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, dl, .highlight {
   margin-bottom: 15px;
 }
 
 body {
-  background-color: $bg;
-  color: $text-color;
-  font-weight: $font-weight;
+  background-color: $light-background-color;
+  color: $light-text-color;
+  font-weight: $light-font-weight;
   @media (prefers-color-scheme: dark) {
-    background-color: $dark-bg;
+    background-color: $dark-background-color;
     color: $dark-text-color;
     font-weight: $dark-font-weight;
   }
   font-size: 16px;
   line-height: 1.5;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -77,7 +30,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $font-weight;
+  font-weight: $light-font-weight;
   @media (prefers-color-scheme: dark) {
     font-weight: $dark-font-weight;
   }
@@ -87,44 +40,33 @@ table td {
   border-color: transparent;
 }
 
-pre, code {
-  padding: 2px 4px;
-  overflow-x: auto;
-  vertical-align: middle;
-  border-radius: 5px;
-  
-  > code {
-    padding: 2px 0px;
-    background-color: inherit;
-    box-shadow: none;
-  }
-}
-
 a, button {
   border: none;
   background-color: inherit;
   padding: 0;
   font-family: inherit;
   font-size: inherit;
-  color: $link-color;
+  color: $light-link-color;
+  text-decoration: underline;
   @media (prefers-color-scheme: dark) {
     color: $dark-link-color;
   }
-  text-decoration: none;
 
   &:visited {
-    color: $link-visited-color;
+    color: $light-link-visited-color;
     @media (prefers-color-scheme: dark) {
       color: $dark-link-visited-color;
     }
   }
 
   &:hover {
-    color: $link-hover-color;
+    color: $dark-text-color;
+    background-color: $light-primary-color;
     @media (prefers-color-scheme: dark) {
-      color: $dark-link-hover-color;
-    }
-    text-decoration: underline;
+      color: $light-text-color;
+    background-color: $dark-primary-color;
+  }
+    text-decoration: none;
   }
 
   &:hover.page-link {
@@ -140,9 +82,9 @@ li {
 .svg-icon {
   max-width: 16px;
   max-height: 16px;
-  fill: $svg-icon-fill-color;
+  fill: $light-text-color;
   @media (prefers-color-scheme: dark) {
-    fill: $svg-icon-fill-color;
+    fill: $dark-text-color;
   }
   vertical-align: text-top;
 }
@@ -165,11 +107,11 @@ li {
 .site-header {
   border-top: none;
   width: 100%;
-  background-color: $bg;
-  border-bottom: 1px solid $border-color;
+  background-color: $light-background-color;
+  border-bottom: 1px solid $light-text-color;
   @media (prefers-color-scheme: dark) {
-    background-color: $dark-bg;
-    border-bottom-color: $dark-border-color;
+    background-color: $dark-background-color;
+    border-bottom-color: $dark-text-color;
   }
   display: flex;
   justify-content: center;
@@ -194,27 +136,30 @@ li {
   }
 
   .page-link, .site-title {
-    color :$text-color;
+    padding-left: .2em;
+    padding-right: .2em;
+    color: $light-text-color;
     @media (prefers-color-scheme: dark) {
       color: $dark-text-color;
     }
+    text-decoration: none;
 
     &:hover {
-      color: $brand-color;
+      color: $dark-text-color;
       @media (prefers-color-scheme: dark) {
-        color: $dark-brand-color;
+        color: $light-text-color;
       }
       text-decoration: none;
     }
   }
 
   .site-nav {
-    background-color: $bg;
-    border-color: $border-color;
-    color: $text-color;
+    background-color: $light-background-color;
+    border-color: $light-text-color;
+    color: $light-text-color;
     @media (prefers-color-scheme: dark) {
-      background-color: $dark-bg;
-      border-color: $dark-border-color;
+      background-color: $dark-background-color;
+      border-color: $dark-text-color;
       color: $dark-text-color;
     }
 
@@ -234,15 +179,15 @@ li {
 
   .menu-icon {
     display: none;
-    background-color: $bg;
+    background-color: $light-background-color;
     @media (prefers-color-scheme: dark) {
-      background-color: $dark-bg;
+      background-color: $dark-background-color;
     }
 
     > svg {
-      fill: $menu-icon-fill;
+      fill: $light-text-color;
       @media (prefers-color-scheme: dark) {
-        fill-color: $dark-menu-icon-fill;
+        fill: $dark-text-color;
       }
     }
   }
@@ -305,16 +250,16 @@ li {
   flex-flow: row-reverse nowrap;
 
   margin-bottom: 2em;
-  color: $project-card-text-color;
-  background-color: $project-card-bg;
+  color: $light-text-color;
+  background-color: $light-secondary-color;
   @media (prefers-color-scheme: dark) {
-    color: $dark-project-card-text-color;
-    background-color: $dark-project-card-bg;
+    color: $dark-text-color;
+    background-color: $dark-secondary-color;
   }
   border-radius: 4px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.1), 15px 15px $project-card-shadow-color;
+  box-shadow: 15px 15px $light-primary-color;
   @media (prefers-color-scheme: dark) {
-    box-shadow: 0 5px 15px rgba(0,0,0,.1), 15px 15px $dark-project-card-shadow-color;
+    box-shadow: 15px 15px $dark-tertiary-color;
   }
   transition: all 0.3s ease;
 
@@ -331,10 +276,6 @@ li {
   }
 
   .project-content {
-    background-color: $card-color;
-    @media (prefers-color-scheme: dark) {
-      background-color: $dark-card-color;
-    }
     padding: 2em;
     flex: 2;
     transition: all .5s ease;
@@ -349,7 +290,10 @@ li {
       
       .project-tag {
         border-radius: 4px;
-        border: 2px solid $card-tag-border;
+        border: 1px solid $light-link-visited-color;
+        @media (prefers-color-scheme: dark) {
+          border-color: $dark-primary-color;
+        }
         padding: 8px;
         margin-right: 10px;
         margin-bottom: 10px;
@@ -369,31 +313,34 @@ li {
         height: 40px;
         line-height: 40px;
         padding: 0 14px;
-        box-shadow: 0 4px 6px rgba(63, 3, 78, 0.11),0 1px 3px rgba(0,0,0,.08);
+        box-shadow: 0 1px 3px $light-primary-color;
+        @media (prefers-color-scheme: dark) {
+          box-shadow: none;
+        }
         border-radius: 4px;
         letter-spacing: .025em;
         text-transform: uppercase;
         text-decoration: none;
         transition: all .15s ease;
-        font-family: Dosis, sans-serif;
         font-size: .9em;
         font-weight: 600;
-        color: $project-card-link-color;
-        border: 2px solid $project-card-link-color;
-        background: $card-color;
+        color: $light-text-color;
+        border: 1px solid;
+        border-color: $light-text-color;
+        background: $light-project-link-color;
         @media (prefers-color-scheme: dark) {
-          color: $dark-project-card-link-color;
-          border-color: $dark-project-card-link-color;
-          background: $dark-card-color;
+          color: $dark-text-color;
+          border-color: $dark-primary-color;
+          background: $dark-project-link-color;
         }
 
         &:hover {
-            color: $card-color;
-            background: $project-card-link-color;
-            @media (prefers-color-scheme: dark) {
-              color: $dark-card-color;
-              background: $dark-project-card-link-color;
-            }
+          color: $dark-text-color;
+          background: $light-primary-color;
+          @media (prefers-color-scheme: dark) {
+            color: $dark-text-color;
+            background: $dark-tertiary-color;
+          }
         }
       }
     }
@@ -421,24 +368,24 @@ li {
   .skillname {
     margin-bottom: 0.25em;
     font-weight: 500;
-    color: $skillname-color;
+    color: $light-text-color;
     @media (prefers-color-scheme: dark) {
-      color: $dark-skillname-color;
+      color: $dark-text-color;
     }
   }
 
   .skillbar {
-    background-color: $skillbar-bg;
+    background-color: $light-tertiary-color;
     margin-bottom: 1em;
     @media (prefers-color-scheme: dark) {
-      background-color: $dark-skillbar-bg;
+      background-color: $dark-tertiary-color;
     }
 
     > .skillbar-filled {
-      background-color: $brand-color;
+      background-color: $light-skillbar-color;
       padding: 0.4em 0.5em;
       @media (prefers-color-scheme: dark) {
-        background-color: $dark-brand-color;
+        background-color: $dark-skillbar-color;
       }
     }
   }
@@ -473,9 +420,9 @@ ul.pager {
 
 .post-meta {
   font-size: 14px;
-  color: $post-meta-color;
+  color: $light-text-color;
   @media (prefers-color-scheme: dark) {
-    color: $dark-post-meta-color;
+    color: $dark-text-color;
   }
 }
 
@@ -487,11 +434,11 @@ ul.pager {
 .update {
   padding: 1em;
   border-radius: 1em;
-  background-color: $update-bg;
-  color: $update-text-color;
+  background-color: $light-secondary-color;
+  color: $light-text-color;
   @media (prefers-color-scheme: dark) {
-    background-color: $dark-update-bg;
-    color: $dark-update-text-color;
+    background-color: $dark-primary-color;
+    color: $light-text-color;
   }
 }
 
@@ -499,24 +446,29 @@ ul.pager {
   > li {
     border-left: 0.4em solid transparent;
     padding-left: 0.4em;
-    transition: border-color .3s ease-in-out;
+    transition: border-color .2s ease-in-out;
 
     &:hover {
-      border-color: $post-hover-side-color;
+      border-color: $light-primary-color;
       @media (prefers-color-scheme: dark) {
-        border-color: $dark-post-hover-side-color;
+        border-color: $dark-primary-color;
       }
     }
 
     a {
       color: inherit;
       text-decoration: none;
+
+      &:hover {
+        background-color: inherit;
+      }
     }
 
     .post-link-header {
-      color: $brand-color;
+      text-decoration: underline;
+      color: $light-primary-color;
       @media (prefers-color-scheme: dark) {
-        color: $dark-brand-color;
+        color: $dark-primary-color;
       }
     }
   }
@@ -528,18 +480,16 @@ ul.pager {
 
 .site-footer {
   width: 100%;
-  border-top-color: $border-color;
-  border-top-color: $footer-border-color;
+  border-top-color: $light-text-color;
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $dark-text-color;
+  }
   border-top-style: solid;
   border-top-width: 1px;
   padding-top: 30px;
   padding-bottom: 30px;
   display: flex;
   justify-content: center;
-  @media (prefers-color-scheme: dark) {
-    border-top-color: $dark-border-color;
-    border-top-color: $dark-footer-border-color;
-  }
 
   ul {
     padding-left: 0;
@@ -551,9 +501,9 @@ ul.pager {
 }
 
 .footer-main {
-  color: $footer-text;
+  color: $light-text-color;
   @media (prefers-color-scheme: dark) {
-    color: $dark-footer-text;
+    color: $dark-text-color;
   }
   display: flex;
   flex-wrap: wrap;
@@ -582,6 +532,22 @@ ul.pager {
 
 canvas {
   background-color: #000000;
+}
+
+.highlight {
+  position: relative;
+  pre {
+    overflow-x: auto;
+    padding: 2px 4px;
+    border-radius: 5px;
+  }
+
+  .copy-button {
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+    right: 5px;
+  }
 }
 
 .skip-to-main {

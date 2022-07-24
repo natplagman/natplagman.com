@@ -1,6 +1,7 @@
 [highlight]
   codeFences = true
   style = "dracula"
+  noClasses = false
 [goldmark]
   [goldmark.parser.attribute]
     block = true
