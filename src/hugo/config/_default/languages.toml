@@ -18,3 +18,8 @@
       name = "Blog"
       weight = 2
       url = "/blog/"
+    [[en.menu.main]]
+      name = "Contact"
+      weight = 3
+      url = "#contact"
+      identifier = "Contact"

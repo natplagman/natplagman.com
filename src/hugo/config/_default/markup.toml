@@ -1,6 +1,6 @@
 [highlight]
   codeFences = true
-  style = "monokai"
+  style = "dracula"
 [goldmark]
   [goldmark.parser.attribute]
     block = true

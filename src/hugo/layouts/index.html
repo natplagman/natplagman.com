@@ -5,10 +5,12 @@
       {{ .Content }}
       <div class="projects">
         {{ range .Params.Project }}
-          <div class="project-card">
+          <figure class="project-card">
             {{ $image := resources.Get .Image }}
-            <div class="project-screenshot" style="background: #111 url('{{ $image.Permalink }}') no-repeat scroll 0% 0% / cover;"></div>
-            <div class="project-content">
+            <div class="project-screenshot">
+              <img src="{{ $image.Permalink }}" alt="{{ .Alt }}"/>
+            </div>
+            <figcaption class="project-content">
               <h2 class="project-title">{{ .Title }}</h2>
               <p>{{ .Description }}</p>
               <div class="project-tags">
@@ -22,8 +24,8 @@
                   <a class="project-link" href="{{ .DemoURL }}">View Demo</a>
                 {{ end }}
               </div>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         {{ end }}
       </div>
     </div>

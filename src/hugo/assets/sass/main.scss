@@ -53,7 +53,7 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight {
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, .highlight {
   margin-bottom: 15px;
 }
 
@@ -100,7 +100,12 @@ pre, code {
   }
 }
 
-a {
+a, button {
+  border: none;
+  background-color: inherit;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
   color: $link-color;
   @media (prefers-color-scheme: dark) {
     color: $dark-link-color;
@@ -212,10 +217,14 @@ li {
       border-color: $dark-border-color;
       color: $dark-text-color;
     }
-    line-height: 54px;
 
     .nav-trigger {
       display: none;
+    }
+
+    .page-link {
+      display: inline-block;
+      line-height: 54px;
     }
 
     .page-link:not(:last-child) {
@@ -240,39 +249,42 @@ li {
 }
 
 @media screen and (max-width: 600px) {
-  .site-nav {
-    position: absolute;
-    top: 9px;
-    right: 15px;
-    border: 1px solid;
-    border-radius: 5px;
-    border-style: groove;
-    
-    label[for="nav-trigger"] {
-      z-index: 2;
-      cursor: pointer;
-    }
+  .site-header {
+    .site-nav {
+      position: absolute;
+      top: 9px;
+      right: 15px;
+      border: 1px solid;
+      border-radius: 5px;
+      border-style: groove;
+      
+      label[for="nav-trigger"] {
+        display: inherit;
+        z-index: 2;
+        cursor: pointer;
+      }
 
-    .menu-icon {
-      float: right;
-      display: block;
-      padding: 10px 10px;
-      line-height: 0;
-    }
+      .menu-icon {
+        float: right;
+        display: block;
+        padding: 10px 10px;
+        line-height: 0;
+      }
 
-    input ~ .trigger {
-      display: none;
-      clear: both;
-    }
+      input ~ .trigger {
+        display: none;
+        clear: both;
+      }
 
-    :checked ~ .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
+      :checked ~ .trigger {
+        display: block;
+        padding-bottom: 5px;
+      }
 
-    .page-link {
-      display: block;
-      padding: 0 10px;
+      .page-link {
+        display: block;
+        padding: 0 10px;
+      }
     }
   }
 }
@@ -289,10 +301,9 @@ li {
 }
 
 .project-card {
-  height: 100%;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-flow: row-reverse nowrap;
+
   margin-bottom: 2em;
   color: $project-card-text-color;
   background-color: $project-card-bg;
@@ -305,11 +316,18 @@ li {
   @media (prefers-color-scheme: dark) {
     box-shadow: 0 5px 15px rgba(0,0,0,.1), 15px 15px $dark-project-card-shadow-color;
   }
-  overflow: hidden;
   transition: all 0.3s ease;
 
   .project-screenshot {
-    width: 60%;
+    flex: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    max-height: 400px;
+    img {
+      height: 100%;
+    }
   }
 
   .project-content {
@@ -318,7 +336,7 @@ li {
       background-color: $dark-card-color;
     }
     padding: 2em;
-    width: 40%;
+    flex: 2;
     transition: all .5s ease;
 
     .project-title {
@@ -377,6 +395,17 @@ li {
               background: $dark-project-card-link-color;
             }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .project-card {
+    flex-flow: column wrap;
+    .project-screenshot {
+      img {
+        width: 100%;
       }
     }
   }
