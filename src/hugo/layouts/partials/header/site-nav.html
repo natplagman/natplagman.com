@@ -11,8 +11,10 @@
   <div class="trigger">
     {{ range .Site.Menus.main }}
       {{ if eq .Identifier "Contact" }}
-        <button class="page-link" onclick="let contact = document.getElementById('contact'); contact.scrollIntoView({ behavior: 'smooth' });">{{ .Name }}</button>
-      {{ else }}
+        <button hidden id="contact-page-link" class="page-link" onclick="let contact = document.getElementById('contact'); contact.scrollIntoView({ behavior: 'smooth' });">{{ .Name }}</button>
+        <script>document.getElementById('contact-page-link').hidden = false;</script>
+        <noscript><a class="page-link" href="{{ .URL }}">{{ .Name }}</a></noscript>
+        {{ else }}
         <a class="page-link" href="{{ .URL }}">{{ .Name }}</a>
       {{ end }}
     {{ end }}

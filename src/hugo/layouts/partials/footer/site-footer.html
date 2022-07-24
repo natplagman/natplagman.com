@@ -34,7 +34,9 @@
       </div>
     </div>
     <div class="flex-center flex-col">
-      <button class="page-link" onclick="document.body.scrollIntoView({ behavior: 'smooth' });">Back to top</button>
+      <noscript><a class="page-link" href="#">Back to top</a></noscript>
+      <button hidden id="top-page-link" class="page-link" onclick="document.body.scrollIntoView({ behavior: 'smooth' });">Back to top</button>
+      <script>document.getElementById('top-page-link').hidden = false;</script>
       <span>© {{ now.Year }} under the&nbsp;<a href="https://opensource.org/licenses/MIT">MIT license</a>.</span>
     </div>
   </div>
